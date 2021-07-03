@@ -27,8 +27,9 @@ Uターン
 
 ## 設計書
 [要件定義書](https://docs.google.com/document/d/13kaw9P5JomKceFN5depuyCp2szuRZ6eff6h0cm00p0U/edit?usp=sharing)<br>
-[ER図]()作成中<br>
-[テーブル定義書]()作成中<br>
+[ER図](https://drive.google.com/file/d/1tlGojJsR6fAiQodLzHVLwaqlnRmPuNKX/view?usp=sharing)<br>
+[テーブル定義書](https://drive.google.com/file/d/1LerAktZ6Sq8G1UuAxv0_WI6a6jRvzBOg/view?usp=sharing)<br>
+[アプリケーション詳細設計](https://docs.google.com/spreadsheets/d/1iOchvw4aH8ZQej_mCfFOO94AXh2QBKKz8eDE6doOBQQ/edit?usp=sharing)
 
 ## チャレンジ要素一覧
 [こちら](https://docs.google.com/spreadsheets/d/1OipU1JoiOw8zmt7YMVKOUo39iZNlWl4apbKiWS0jK0E/edit?usp=sharing)
