@@ -5,37 +5,38 @@
   </div>
   <p id="text">詳細は画面をクリック<br>忙しい方はスクロールしてね</p>
 </div>
-<%= image_tag('illust_yamanashi_chara.jpg') %>
-<div class="tab-menu">
-  <ul class="menu">
-    <li><a href="#" class="active" data-id="first">フッ軽とは</a></li>
-    <li><a href="#" data-id="second">IJUとは</a></li>
-    <li><a href="#" data-id="third">フッ軽IJUとは</a></li>
-  </ul>
 
-  <section class="content active" id="first">
-    フッ軽＝フットワークが軽いこと🍑<br>
-    移住となるとなかなか踏ん切りがつかないものであるため、当サイトでは移住について気軽に考えてほしいという思いをこめて『フッ軽』とつけました！！
-  </section>
+<div class="about-bottom">
+  <%= image_tag'illust_yamanashi_chara.jpg', width: '50%', height: '50%' %>
 
-  <section class="content" id="second">
-    IJU＝移住のこと🍇<br>
-    Iターン、Jターン、Uターンの頭文字でもあります。<br>
-    Iターン…都市部から出身地の異なる地方への移住<br>
-    Jターン…出身地である地方から都市部へ移住、その後出身地と異なる地方への移住<br>
-    Uターン…地方から都市部へ移住、その後再びその地方へ戻って移住
-  </section>
+  <div class="tab-menu">
+    <ul class="menu">
+      <li><a href="#" class="active" data-id="first">フッ軽とは</a></li>
+      <li><a href="#" data-id="second">IJUとは</a></li>
+      <li><a href="#" data-id="third">フッ軽IJUとは</a></li>
+    </ul>
 
-  <section class="content" id="third">
-    気軽に地方移住を検討していただけるサイトです🗻<br>
-    登録なしでも閲覧はできますが、新規登録をすると投稿にいいね、コメント、フォロー、DMができます。<br>
-    私の地元山梨では、歯止めの効かない若者の県外流出により、「高齢化」「人口減少」「後継者不足」が深刻化したことで、使い道の無くなった空き家がたくさんあります。私自身も亡き祖父母の家が空き家になってしまうため、そこに住み家を守っています。<br>
-    当サイトを通して少しでも多くの人に地方移住に興味を持ってもらい、今後さらに加速していくであろう空き家の問題が解決され、地域が繁栄することを祈っています
-  </section>
+    <section class="content active" id="first">
+      フッ軽＝フットワークが軽いこと🍑<br>
+      移住となるとなかなか踏ん切りがつかないものであるため、当サイトでは移住について気軽に考えてほしいという思いをこめて『フッ軽』とつけました！！
+    </section>
+
+    <section class="content" id="second">
+      IJU＝移住のこと🍇<br>
+      Iターン、Jターン、Uターンの頭文字でもあります。<br>
+      Iターン…都市部から出身地の異なる地方への移住<br>
+      Jターン…出身地である地方から都市部へ移住、その後出身地と異なる地方への移住<br>
+      Uターン…地方から都市部へ移住、その後再びその地方へ戻って移住
+    </section>
+
+    <section class="content" id="third">
+      気軽に地方移住を検討していただけるサイトです🗻<br>
+      登録なしでも閲覧はできますが、新規登録をすると投稿にいいね、コメント、フォロー、DMができます。<br>
+      私の地元山梨では、歯止めの効かない若者の県外流出により、「高齢化」「人口減少」「後継者不足」が深刻化したことで、使い道の無くなった空き家がたくさんあります。私自身も亡き祖父母の家が空き家になってしまうため、そこに住み家を守っています。<br>
+      当サイトを通して少しでも多くの人に地方移住に興味を持ってもらい、今後さらに加速していくであろう空き家の問題が解決され、地域が繁栄することを祈っています
+    </section>
+    <%= link_to 'TOPページに戻る', root_path %>
+  </div>
 </div>
-
-
-<%= link_to 'TOPページに戻る', root_path %>
-
 
 <%= javascript_include_tag 'homes_about.js' %>
