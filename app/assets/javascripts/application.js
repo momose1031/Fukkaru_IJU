@@ -17,4 +17,4 @@
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
-//= require_tree .
+// require_tree JSの読み込みを各viewごとに設定
