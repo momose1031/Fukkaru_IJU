@@ -5,4 +5,6 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :validatable
          
   enum conutry: { 県民: 0, 移住に興味のある方: 1 }
+  
+  attachment :image
 end
