@@ -1,4 +1,12 @@
-<h2>会員詳細</h2>
-<%= customer.name %>
-<%= customer.country %>
-<%= customer.email %>
+<% if @customer == current_customer %>
+  <h2>マイページ</h2>
+<% else %>
+  <h2>会員詳細</h2>
+<% end %>
+<%= attachment_image_tag customer, :image, fallback: "illust_human.jpg", class: "rounded-circle" %>
+<p><%= customer.name %></p>
+<% if customer.country == 0 %>
+  <p>山梨県民</p>
+<% else %>
+  <p>移住に興味のある方</p>
+<% end %>
