@@ -7,4 +7,9 @@ class Customer < ApplicationRecord
   enum conutry: { 県民: 0, 移住に興味のある方: 1 }
   
   attachment :image
+  
+  def active_for_authentication?
+    super && (self.is_deleted == false)
+  end
+  
 end
