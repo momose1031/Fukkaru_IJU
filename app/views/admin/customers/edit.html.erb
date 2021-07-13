@@ -1,0 +1,41 @@
+<div class="row text-center m-5">
+  <div class="col text-center">
+    <h2>会員No.<%= @customer.id %>編集画面</h2>
+  </div>
+</div>
+<div class="row justify-content-start">
+  <div class="col-md-10 offset-1 text-center">
+    <%= form_with model: @customer, url: admin_customer_path(@customer), method: :patch, local: true do |f| %>
+      <div class="form-group">
+        <%= f.label :image, "プロフィール画像", class: "label" %>
+        <%= f.attachment_field :image, class: "input" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :name, "ニックネーム", class: "label" %>
+        <%= f.text_field :name, autofocus: true, size: "40x20" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :email, "メールアドレス", class: "label" %>
+        <%= f.email_field :email, size: "40x20" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :introduction, "自己紹介", class: "label" %>
+        <%= f.text_field :introduction, size: "40x20" %>
+      </div>
+      <div class="form-group">
+        <%= f.label :country, "出身", class: "label" %>
+        <%= f.radio_button :country, 0, class: "input" %>県民の方
+        <%= f.radio_button :country, 1, class: "input" %>移住に興味のある方
+      </div>
+      <div>
+        <%= f.radio_button :is_deleted, true %>
+        <%= f.label :is_deleted, "退会済"%>
+        <%= f.radio_button :is_deleted, false %>
+        <%= f.label :is_deleted, "有効" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "更新する", class:"btn btn-secondary" %>
+      </div>
+    <% end %>
+  </div>
+</div>
