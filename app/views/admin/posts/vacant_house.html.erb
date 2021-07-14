@@ -1,0 +1,43 @@
+<div class="row text-center pt-5">
+  <div class="col-sm-8">
+    <h2>空き家情報一覧</h2>
+  </div>
+  <div class="col-sm-4">
+    <p>検索窓を設置</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row mt-3">
+    <div class="col-md-10 mx-auto">
+      <table class="table table-hover table-inverse table-responsive-md mt-3">
+        <thead class="table-active">
+          <tr>
+            <th>投稿画像</th>
+            <th>投稿ID</th>
+            <th>タイトル</th>
+            <th>投稿者</th>
+            <th>登録日時</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @posts.each do |post| %>
+            <% if post.category == "空き家情報" %>
+              <tr>
+                <td><%= attachment_image_tag post, :image, class: "rounded-circle" %></td>
+                <td><%= post.id %></td>
+                <td>
+                  <%= link_to admin_post_path(post) do %>
+                    <%= post.title %>
+                  <% end %>
+                </td>
+                <td><%= post.customer.name %></td>
+                <td><%= post.created_at.to_s(:datetime_jp) %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

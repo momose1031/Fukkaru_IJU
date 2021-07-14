@@ -34,7 +34,7 @@
           <p class="text-success">有効</p>
         <% end %>
         <p>登録日：<%= @customer.created_at.to_s(:datetime_jp) %></p>
-        <p>更新日：<%= @customer.updated_at.to_s(:datetime_jp) %></p></p>
+        <p>更新日：<%= @customer.updated_at.to_s(:datetime_jp) %></p>
         <%= link_to '編集する', edit_admin_customer_path(@customer) %>
       </div>
     </div>

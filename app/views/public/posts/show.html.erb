@@ -7,14 +7,14 @@
   <div class="card mb-3 mx-auto bg-light" style="max-width: 540px;">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <%= attachment_image_tag @post, :image, fallback: "illust_human.jpg" %>
+        <%= attachment_image_tag @post, :image %>
       </div>
       <div class="col-md-8">
         <div class="card-body">
           <h3 class="card-title"><%= @post.title %><span style="font-size: 10px"></span></h3>
           <p class="card-text"><small class="text-muted">投稿者：<%= @post.customer.name %></small></p>
           <p class="card-text"><small class="text-muted">場所：<%= @post.location %></small></p>
-          <p class="card-text"><small class="text-muted">ブックマーク</small></p>
+          <p class="card-text"><small class="text-muted">お気に入り数</small></p>
         </div>
       </div>
       <div class="col">
@@ -25,6 +25,7 @@
         <p>コメントを見る</p>
         <% if @post.customer_id == current_customer.id %>
           <%= link_to '編集する', edit_post_path(@post) %>
+          <%= link_to "削除する", post_path(@post), method: :delete, "data-confirm" => "本当に退会しますか？" %>
         <% end %>
       </div>
     </div>
