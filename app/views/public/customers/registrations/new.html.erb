@@ -27,8 +27,8 @@
   </div>
   
   <div>
-    <%= f.radio_button :country, 0 %>県民の方<br />
-     <%= f.radio_button :country, 1, checked: "checked" %>移住に興味のある方
+    <%= f.radio_button :country, "県民の方" %>県民の方<br />
+    <%= f.radio_button :country, "移住に興味のある方", checked: "checked" %>移住に興味のある方
   </div>
 
   <div class="actions">

@@ -1,0 +1,32 @@
+<div class="row text-center m-5">
+  <div class="col text-center">
+    <h2>投稿詳細</h2>
+  </div>
+</div>
+<div class="row text-center">
+  <div class="card mb-3 mx-auto bg-light" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <%= attachment_image_tag @post, :image, fallback: "illust_human.jpg" %>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h3 class="card-title"><%= @post.title %><span style="font-size: 10px"></span></h3>
+          <p class="card-text"><small class="text-muted">投稿者：<%= @post.customer.name %></small></p>
+          <p class="card-text"><small class="text-muted">場所：<%= @post.location %></small></p>
+          <p class="card-text"><small class="text-muted">ブックマーク</small></p>
+        </div>
+      </div>
+      <div class="col">
+        <p><%= @post.body %></p>
+        <%= link_to :back do %>
+          <button>一覧ページへ戻る</button>
+        <% end %>
+        <p>コメントを見る</p>
+        <% if @post.customer_id == current_customer.id %>
+          <%= link_to '編集する', edit_post_path(@post) %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
