@@ -21,7 +21,7 @@
     let title = titles.splice(0, 1);
     description = descriptions.splice(0, 1);
     content.textContent = title;
-    text.textContent = "タイピングしてみよう！";
+    text.textContent = "上のローマ字を実際にタイピングしてみよう！";
     content2.textContent = word;
     typing.insertBefore(content2, text);
     document.addEventListener('keydown', e => {

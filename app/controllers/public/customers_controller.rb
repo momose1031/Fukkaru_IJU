@@ -44,6 +44,9 @@ class Public::CustomersController < ApplicationController
     redirect_to root_path, notice: "ご利用ありがとうございました"
   end
   
+  def favorites
+  end
+  
   private
   
   def customer_params
