@@ -12,28 +12,28 @@
   <body>
     <% if admin_signed_in? %>
       <li></li>
+      <li><%= link_to "おすすめスポット", admin_recommend_path %></li>
+      <li><%= link_to "空き家情報", admin_vacant_house_path %></li>
+      <li><%= link_to "ロゴを入れる", root_path %></li> <!--ロゴを入れる、path指定しない-->
       <li><%= link_to "会員一覧", admin_customers_path %></li>
-      <li>投稿一覧</li>
-      <li><%= link_to "ロゴを入れる", root_path %></li> <!--ロゴを入れる-->
       <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
-      <li></li>
       <li></li>
     <% elsif customer_signed_in? %>
       <li><%= link_to "フッ軽IJUとは", about_path %></li>
-      <li>おすすめスポット</li>
-      <li>空き家情報</li>
+      <li><%= link_to "おすすめスポット", recommend_path %></li>
+      <li><%= link_to "空き家情報", vacant_house_path %></li>
       <li><%= link_to "ロゴを入れる", root_path %></li> <!--ロゴを入れる-->
-      <li><%= link_to "会員一覧", customers_path %></li>
+      <li><%= link_to "マイページ", customer_path(current_customer.id) %></li>
       <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
-      <li>お問い合わせ</li>
+      <li>HM</li> <!--会員一覧、お問い合わせ-->
     <% else %>
       <li><%= link_to "フッ軽IJUとは", about_path %></li>
-      <li>おすすめスポット</li>
-      <li>空き家情報</li>
+      <li><%= link_to "おすすめスポット", recommend_path %></li>
+      <li><%= link_to "空き家情報", vacant_house_path %></li>
       <li><%= link_to "ロゴを入れる", root_path %></li> <!--ロゴを入れる-->
       <li><%= link_to "新規登録", new_customer_registration_path %></li>
       <li><%= link_to "ログイン", new_customer_session_path %></li>
-      <li>お問い合わせ</li>
+      <li>HM</li> <!--ゲストログイン会員一覧、お問い合わせ-->
     <% end %>
 
     <%= yield %>

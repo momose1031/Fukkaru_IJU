@@ -33,7 +33,7 @@
           <p><%= @customer.introduction %></p>
         <% end %>
         <% if @customer == current_customer %>
-          <%= link_to '編集する', edit_customer_path(@customer) %>
+          <%= link_to '編集する', edit_customer_path(@customer) %><br>
         <% end %>
       </div>
     </div>

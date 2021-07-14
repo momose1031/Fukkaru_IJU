@@ -1,0 +1,19 @@
+<h2>投稿フォーム</h2>
+
+<%= form_with model: @post, local:true do |f| %>
+  <h4>画像</h4>
+  <p><%= f.attachment_field :image %></p>
+  <h4>タイトル</h4>
+  <p><%= f.text_field :title %></p>
+  <h4>内容</h4>
+  <p><%= f.text_area :body %></p>
+  <h4>場所</h4>
+  <p><%= f.text_field :location %></p>
+  <p><%= f.radio_button :category, "おすすめスポット", checked: "checked" %>おすすめスポットの投稿</p>
+  <% if current_customer.country == 0 %>
+    <p><%= f.radio_button :category, "空き家情報" %>空き家情報の投稿</p>
+  <% end %>
+  <p><%= f.submit '投稿' %></p>
+<% end %>
+
+<%= link_to "戻る", :back %>

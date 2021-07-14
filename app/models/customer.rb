@@ -4,7 +4,9 @@ class Customer < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
          
-  enum conutry: { 県民: 0, 移住に興味のある方: 1 }
+  has_many :posts, dependent: :destroy
+         
+  enum conutry: { 県民の方: 0, 移住に興味のある方: 1 }
   
   attachment :image
   
