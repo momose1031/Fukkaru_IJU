@@ -14,7 +14,23 @@
           <h3 class="card-title"><%= @post.title %><span style="font-size: 10px"></span></h3>
           <p class="card-text"><small class="text-muted">投稿者：<%= @post.customer.name %></small></p>
           <p class="card-text"><small class="text-muted">場所：<%= @post.location %></small></p>
-          <p class="card-text"><small class="text-muted">お気に入り数</small></p>
+          <p class="card-text">
+            <small class="text-muted">
+              <% if @post.favorited_by?(current_customer) %>
+                <p>
+                  <%= link_to post_favorites_path(@post), method: :delete do %>
+                    ♥<%= @post.favorites.count %>
+                  <% end %>
+                </p>
+                <% else %>
+                <p>
+                  <%= link_to post_favorites_path(@post), method: :post do %>
+                    ♡<%= @post.favorites.count %>
+                  <% end %>
+                </p>
+              <% end %>
+            </small>
+          </p>
         </div>
       </div>
       <div class="col">
