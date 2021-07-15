@@ -38,11 +38,28 @@
         <%= link_to :back do %>
           <button>一覧ページへ戻る</button>
         <% end %>
-        <p>コメントを見る</p>
         <% if @post.customer_id == current_customer.id %>
           <%= link_to '編集する', edit_post_path(@post) %>
-          <%= link_to "削除する", post_path(@post), method: :delete, "data-confirm" => "本当に退会しますか？" %>
         <% end %>
+        <div class="comments">
+          <p>コメント件数：<%= @post.comments.count %></p>
+          <% @post.comments.each do |comment| %>
+            <!--<p>%= image_tag('sample-author1.jpg') %></p>-->
+            <%= comment.customer.name %>
+            <%= comment.created_at.to_s(:datetime_jp) %><%= comment.comment %>
+            <% if comment.customer == current_customer %>
+              <div class="comment-delete">
+                <%= link_to "削除", post_comment_path(comment.post, comment), method: :delete %>
+              </div>
+            <% end %>
+          <% end %>
+          </div>
+          <div class="new-comment">
+          <%= form_with(model:[@post, @comment], local: true) do |f| %>
+            <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+            <%= f.submit "送信する" %>
+          <% end %>
+          </div>
       </div>
     </div>
   </div>
