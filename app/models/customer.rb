@@ -31,11 +31,7 @@ class Customer < ApplicationRecord
   def following?(customer) #フォローしているか確認
     followings.include?(customer)
   end
-  
-  # def matchers #相互フォロー
-  #   followings & followers
-  # end
-  
+
   def active_for_authentication?
     super && (self.is_deleted == false)
   end
