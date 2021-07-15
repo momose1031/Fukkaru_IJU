@@ -27,6 +27,8 @@ Rails.application.routes.draw do
     end
     get 'recommend' => 'posts#recommend'
     get 'vacant_house' => 'posts#vacant_house'
+    get 'chat/:id' => 'chats#show', as: 'chat'
+    resources :chats, only: [:create]
   end
 
   namespace :admin do
