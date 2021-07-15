@@ -1,21 +1,40 @@
-<%= form_with model: @chat do |f| %>
+<div id="line-bc">
+  <div class="line-header">
+    <p><%= @customer.name %>　さん</p>
+    <ul>
+      <li><i class="fas fa-list-ol"></i></li>
+      <li><i class="fas fa-phone"></i></li>
+      <li><i class="fas fa-search"></i></li>
+    </ul>
+  </div>
+  <!-- 左のコメント -->
+  <% @chats.each do |chat| %>
+    <% if chat.customer != current_customer %>
+      <div class="line-admin">
+        <div class="a-faceicon">
+          <%= attachment_image_tag chat.customer, :image, fallback: "illust_human.jpg", class: "left-img" %>
+        </div>
+        <div class="chatting">
+          <div class="says">
+            <p><%= chat.message %></p>
+          </div>
+        </div>
+      </div>
+    <% else %>
+  
+    <!--右のコメント-->
+      <div class="line-customer">
+        <p><%= chat.message %></p>
+        <div class="c-faceicon">
+          <%= attachment_image_tag chat.customer, :image, fallback: "illust_human.jpg", class: "right-img" %>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<%= form_with model: @chat, local: true do |f| %>
   <%= f.text_field :message %>
   <%= f.hidden_field :room_id %>
   <%= f.submit %>
 <% end %>
-<table>
-  <thead>
-    <tr>
-      <td>投稿者名</td>
-      <td>投稿内容</td>
-    </tr>
-  </thead>
-  <tbody>
-    <% @chats.each do |chat| %>
-      <tr>
-        <td><%= chat.customer.name %></td>
-        <td><%= chat.message %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>

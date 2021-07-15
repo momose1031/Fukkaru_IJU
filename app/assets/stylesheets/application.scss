@@ -17,7 +17,9 @@
  @import 'font-awesome-sprockets';
  @import 'font-awesome';
 
-
+body {
+  background-color: #fff9db;
+}
 // ここから　aboutページレイアウト
 // タイピング
  #typing {
@@ -151,3 +153,123 @@
   transform: translate(0, -500px);
 }
 // ここまで　モーダルウィンドウ
+
+// ここから　LINE風
+#line-bc {
+  max-width: 450px;
+  margin: 15px auto;
+  text-align: right;
+  font-size: 14px;
+  background: #7da4cd;
+  border: #fff solid 10px;
+}
+
+.line-header {
+  height: 60px;
+  width: 100%;
+  background: black;
+  line-height: 50px;
+  // border: #fff solid 5px;
+}
+
+.line-header p {
+  color: #fff;
+  float: left;
+  margin-left: 30px;
+}
+
+.line-header li {
+  list-style: none;
+  float: right;
+  color: #fff;
+  padding: 10px;
+}
+
+//左側メッセージ
+.line-admin {
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.line-admin .a-faceicon {
+  float: left;
+  margin-right: -50px;
+  width: 40px;
+}
+
+.line-admin .a-faceicon .left-img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.line-admin .chatting {
+  width: 100%;
+  text-align: left;
+}
+
+.says {
+  display: inline-block;
+  position: relative;
+  margin: 0 0 0 50px;
+  padding: 10px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #edf1ee;
+}
+
+.says:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  left: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid #edf1ee;
+  transform: rotate(35deg);
+}
+
+.says p {
+  margin: 0;
+  padding: 0;
+}
+
+// 右側メッセージ
+.line-customer {
+  margin: 10px 0;
+}
+
+.line-customer .c-faceicon {
+  float: right;
+  margin-right: 0;
+  width: 40px;
+}
+
+.line-customer .c-faceicon .right-img{
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.line-customer p {
+  display: inline-block;
+  position: relative;
+  margin: 0 10px 0 0;
+  padding: 8px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #30e852;
+  font-size: 15px;
+}
+
+.line-customer p:after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: -19px;
+  border: 8px solid transparent;
+  border-left: 18px solid #30e852;
+  transform: rotate(-35deg);
+}
+// ここまで　LINE風
