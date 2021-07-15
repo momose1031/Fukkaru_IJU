@@ -12,6 +12,9 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'about' => 'homes#about'
     resources :customers, only: [:index, :show, :edit, :update] do
+      resource :relationships, only: [:create, :destroy]
+      get 'followings' => 'relationships#followings', as: 'followings'
+      get 'followers' => 'relationships#followers', as: 'followers'
       collection do
         get :favorites
       end
