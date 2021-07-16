@@ -1,3 +1,5 @@
+フォロー数：<%= @customer.followings.count %>
+フォロワー数：<%= @customer.followers.count %>
 <% if customer != current_customer %>
   <% if current_customer.following?(customer) %>
     <%= link_to "フォロー解除", customer_relationships_path(customer.id), method: :delete, remote: true %>
