@@ -21,9 +21,9 @@
           <% else %>
             <p class="card-text">移住に興味のある方</p>
           <% end %>
-          <p class="card-text"><small class="text-muted">投稿数：</small></p>
-          <p class="card-text"><small class="text-muted">フォロー数：</small></p>
-          <p class="card-text"><small class="text-muted">フォロワー数：</small></p>
+          <p class="card-text">
+            <small class="text-muted">投稿数：</small>
+          </p>
           <p class="card-text"><small class="text-muted">お気に入り登録数：<%= link_to "@customer.favorites.count", favorites_customers_path %></small></p>
         </div>
       </div>
@@ -36,16 +36,9 @@
         <% if @customer == current_customer %>
           <%= link_to '編集する', edit_customer_path(@customer) %><br>
         <% end %>
-        <% if @customer != current_customer %>
-          <% if current_customer.following?(@customer) %>
-            <%= link_to "フォロー解除", customer_relationships_path(@customer.id), method: :delete %>
-          <% else %>
-            <%= link_to "フォローする", customer_relationships_path(@customer.id), method: :post %>
-          <% end %>
-          <% if (current_customer.following? @customer) && (@customer.following? current_customer)  %>
-            <%= link_to 'チャットを始める', chat_path(@customer.id)%>
-          <% end %>
-        <% end %>
+        <div id="follow_<%= @customer.id %>">
+          <%= render "public/relationships/follow-btn", customer: @customer %>
+        </div>
         <% if @customer == current_customer %>
           <%= link_to "フォロー一覧", customer_followings_path(current_customer.id) %>
           <%= link_to "フォロワー一覧", customer_followers_path(current_customer.id) %>

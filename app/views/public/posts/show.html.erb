@@ -34,7 +34,7 @@
         </div>
         <div class="new-comment">
           <%= form_with(model:[@post, @comment]) do |f| %>
-            <%= f.text_area :comment, rows:'5',placeholder: "コメントをここに" %>
+            <%= f.text_area :comment, rows:'5',placeholder: "コメントしてみよう" %>
             <%= f.submit "送信する" %>
           <% end %>
         </div>
