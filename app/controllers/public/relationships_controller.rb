@@ -1,4 +1,5 @@
 class Public::RelationshipsController < ApplicationController
+  before_action :authenticate_customer!
   
   def create
     current_customer.follow(params[:customer_id])

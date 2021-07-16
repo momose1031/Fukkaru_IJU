@@ -15,21 +15,9 @@
           <p class="card-text"><small class="text-muted">投稿者：<%= @post.customer.name %></small></p>
           <p class="card-text"><small class="text-muted">場所：<%= @post.location %></small></p>
           <p class="card-text">
-            <small class="text-muted">
-              <% if @post.favorited_by?(current_customer) %>
-                <p>
-                  <%= link_to post_favorites_path(@post), method: :delete do %>
-                    ♥<%= @post.favorites.count %>
-                  <% end %>
-                </p>
-                <% else %>
-                <p>
-                  <%= link_to post_favorites_path(@post), method: :post do %>
-                    ♡<%= @post.favorites.count %>
-                  <% end %>
-                </p>
-              <% end %>
-            </small>
+            <div id="post_<%= @post.id %>">
+              <%= render "public/favorites/favorite-btn", post: @post %>
+            </div>
           </p>
         </div>
       </div>
@@ -44,7 +32,6 @@
         <div class="comments">
           <p>コメント件数：<%= @post.comments.count %></p>
           <% @post.comments.each do |comment| %>
-            <!--<p>%= image_tag('sample-author1.jpg') %></p>-->
             <%= comment.customer.name %>
             <%= comment.created_at.to_s(:datetime_jp) %><%= comment.comment %>
             <% if comment.customer == current_customer %>
