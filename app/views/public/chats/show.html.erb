@@ -7,33 +7,12 @@
       <li><i class="fas fa-search"></i></li>
     </ul>
   </div>
-  <!-- 左のコメント -->
-  <% @chats.each do |chat| %>
-    <% if chat.customer != current_customer %>
-      <div class="line-admin">
-        <div class="a-faceicon">
-          <%= attachment_image_tag chat.customer, :image, fallback: "illust_human.jpg", class: "left-img" %>
-        </div>
-        <div class="chatting">
-          <div class="says">
-            <p><%= chat.message %></p>
-          </div>
-        </div>
-      </div>
-    <% else %>
-  
-    <!--右のコメント-->
-      <div class="line-customer">
-        <p><%= chat.message %></p>
-        <div class="c-faceicon">
-          <%= attachment_image_tag chat.customer, :image, fallback: "illust_human.jpg", class: "right-img" %>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+  <div id="chat-ajax">
+    <%= render "public/chats/chat", chats: @chats %>
+  </div>
 </div>
 
-<%= form_with model: @chat, local: true do |f| %>
+<%= form_with model: @chat, remote: true do |f| %>
   <%= f.text_field :message %>
   <%= f.hidden_field :room_id %>
   <%= f.submit %>

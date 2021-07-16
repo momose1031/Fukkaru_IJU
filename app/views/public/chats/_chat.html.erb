@@ -1,0 +1,23 @@
+<% @chats.each do |chat| %>
+  <% if chat.customer != current_customer %>
+    <!-- 左のコメント -->
+    <div class="line-admin">
+      <div class="a-faceicon">
+        <%= attachment_image_tag chat.customer, :image, fallback: "illust_human.jpg", class: "left-img" %>
+      </div>
+      <div class="chatting">
+        <div class="says">
+          <p><%= chat.message %></p>
+        </div>
+      </div>
+    </div>
+  <% else %>
+  <!--右のコメント-->
+    <div class="line-customer">
+      <p><%= chat.message %></p>
+      <div class="c-faceicon">
+        <%= attachment_image_tag chat.customer, :image, fallback: "illust_human.jpg", class: "right-img" %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
