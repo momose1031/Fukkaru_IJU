@@ -18,7 +18,7 @@
  @import 'font-awesome';
 
 body {
-  background-color: #fff9db;
+  background-image: url(tile.jpg);
 }
 // ここから　aboutページレイアウト
 // タイピング
@@ -30,7 +30,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: linear-gradient(to top, rgba(217, 175, 217, 0.7) 0%, rgba(151, 217, 225, 0.7) 100%),url(illust_grape.jpg);
+  background: linear-gradient(to top, rgba(217, 175, 217, 0.7) 0%, rgba(151, 217, 225, 0.7) 100%),url(illust_grape.png);
   background-repeat: no-repeat;
   background-position: right;
   cursor: pointer;
