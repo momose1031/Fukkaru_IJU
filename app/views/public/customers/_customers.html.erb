@@ -1,8 +1,8 @@
-<% @customers.each do |customer| %>
+<% customers.each do |customer| %>
   <% if customer.is_deleted == false %>
     <div class="col-sm-4 mt-5">
       <div class="card bg-light pt-3">
-        <%= link_to customer_path(customer), class: "mx-auto" do %>  <!--, remote: true-->
+        <%= link_to customer_path(customer), remote: true, class: "mx-auto" do %>
           <%= attachment_image_tag customer, :image, fallback: "illust_human.jpg", class: "rounded-circle" %>
         <% end %>
         <div class="card-body text-center">
@@ -15,6 +15,9 @@
               移住に興味のある方
             <% end %>
           </p>
+          <%= link_to customer_path(customer) do %>
+            <p>詳細ページへ</p>
+          <% end %>
         </div>
       </div>
     </div>

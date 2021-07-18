@@ -1,5 +1,5 @@
-const modal = document.getElementById('modal');
-const mask = document.getElementById('mask');
+var modal = document.getElementById('modal');
+var mask = document.getElementById('mask');
 
 modal.innerHTML = '<%= escape_javascript(render 'public/customers/show', customer: @customer) %>';
 
