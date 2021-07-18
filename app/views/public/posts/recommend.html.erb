@@ -3,7 +3,12 @@
     <h2>おすすめスポット一覧</h2>
   </div>
   <div class="col-sm-4">
-    <p>検索窓を設置</p>
+    <p>
+      <%= search_form_for @q, url: recommend_path do |f| %>
+        <%= f.search_field :title_or_body_or_location_cont, placeholder: "おすすめスポットを検索...", class: "form-control" %>
+        <%= f.submit "検索", class: "btn btn-primary" %>
+      <% end %>
+    </p>
   </div>
 </div>
 
