@@ -2,7 +2,8 @@ class Public::CustomersController < ApplicationController
   before_action :authenticate_customer!, except: [:index, :show]
   
   def index
-    @customers = Customer.page(params[:page]).per(12)
+    @q = Customer.ransack(params[:q])
+    @customers = @q.result(distinct: true).order(name: :asc).page(params[:page]).per(12)
   end
   
   def show
