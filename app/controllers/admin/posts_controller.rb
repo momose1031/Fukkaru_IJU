@@ -28,11 +28,13 @@ class Admin::PostsController < ApplicationController
   end
   
   def recommend
-    @posts = Post.all
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true).order(name: :asc).page(params[:page]).per(12)
   end
   
   def vacant_house
-    @posts = Post.all
+    @q = Post.ransack(params[:q])
+    @posts = @q.result(distinct: true).order(name: :asc).page(params[:page]).per(12)
   end
   
   private

@@ -2,7 +2,8 @@ class Admin::CustomersController < ApplicationController
   before_action :authenticate_admin!
   
   def index
-    @customers = Customer.all
+    @q = Customer.ransack(params[:q])
+    @customers = @q.result(distinct: true).order(name: :asc).page(params[:page]).per(12)
   end
   
   def show

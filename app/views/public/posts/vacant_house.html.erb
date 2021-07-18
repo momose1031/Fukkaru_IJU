@@ -3,7 +3,12 @@
     <h2>空き家情報一覧</h2>
   </div>
   <div class="col-sm-4">
-    <p>検索窓を設置</p>
+    <p>
+      <%= search_form_for @q, url: vacant_house_path do |f| %>
+        <%= f.search_field :title_or_body_or_location_cont, placeholder: "空き家情報を検索...", class: "form-control" %>
+        <%= f.submit "検索", class: "btn btn-primary" %>
+      <% end %>
+    </p>
   </div>
 </div>
 
@@ -32,8 +37,9 @@
     <% end %>
   </div>
 </div>
-
-<p><%= link_to "新規投稿する", new_post_path %></p>
+<% if current_customer.country == 0 %>
+  <p><%= link_to "新規投稿する", new_post_path %></p>
+<% end %>
 
 <!--<div class="row">-->
 <!--  <div class="text-center mx-auto mb-3">-->
