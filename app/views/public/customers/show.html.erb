@@ -22,9 +22,20 @@
             <p class="card-text">移住に興味のある方</p>
           <% end %>
           <p class="card-text">
-            <small class="text-muted">投稿数：</small>
+            <small class="text-muted">
+              おすすめスポット投稿数：<%= link_to recommend_path do %><%= @customer.posts.count %><% end %>
+            </small>
           </p>
-          <p class="card-text"><small class="text-muted">お気に入り登録数：<%= link_to "@customer.favorites.count", favorites_customers_path %></small></p>
+          <p class="card-text">
+            <small class="text-muted">
+              空き家情報投稿数：<%= link_to vacant_house_path do %><%= @customer.posts.count %><% end %>
+            </small>
+          </p>
+          <p class="card-text">
+            <small class="text-muted">
+              お気に入り登録数：<%= link_to favorites_customers_path do %><%= @customer.favorites.count %><% end %>
+            </small>
+          </p>
         </div>
       </div>
       <div class="col">
