@@ -3,42 +3,44 @@
     <h2>投稿詳細</h2>
   </div>
 </div>
-<div class="row text-center">
-  <div class="card mb-3 mx-auto bg-light" style="max-width: 540px;">
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <%= attachment_image_tag @post, :image %>
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h3 class="card-title"><%= @post.title %><span style="font-size: 10px"></span></h3>
-          <p class="card-text"><small class="text-muted">投稿者：<%= @post.customer.name %></small></p>
-          <p class="card-text"><small class="text-muted">場所：<%= @post.location %></small></p>
-          <p class="card-text">
-            <div id="favorite_<%= @post.id %>">
-              <%= render "public/favorites/favorite-btn", post: @post %>
-            </div>
-          </p>
-        </div>
-      </div>
-      <div class="col">
-        <p><%= @post.body %></p>
-        <%= link_to :back do %>
-          <button>一覧ページへ戻る</button>
-        <% end %>
-        <% if @post.customer_id == current_customer.id %>
-          <%= link_to '編集する', edit_post_path(@post) %>
-        <% end %>
-        <div id="comment_<%= @post.id %>">
-          <%= render "public/comments/comment", post: @post %>
-        </div>
-        <div class="new-comment">
-          <%= form_with(model:[@post, @comment]) do |f| %>
-            <%= f.text_area :comment, rows:'5',placeholder: "コメントしてみよう" %>
-            <%= f.submit "送信する" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<%= render 'public/posts/show', { post: @post, comment: @comment } %>
+
+<!--<div class="row text-center">-->
+<!--  <div class="card mb-3 mx-auto bg-light" style="max-width: 540px;">-->
+<!--    <div class="row no-gutters">-->
+<!--      <div class="col-md-4">-->
+<!--        %= attachment_image_tag @post, :image %>-->
+<!--      </div>-->
+<!--      <div class="col-md-8">-->
+<!--        <div class="card-body">-->
+<!--          <h3 class="card-title">%= @post.title %><span style="font-size: 10px"></span></h3>-->
+<!--          <p class="card-text"><small class="text-muted">投稿者：%= @post.customer.name %></small></p>-->
+<!--          <p class="card-text"><small class="text-muted">場所：%= @post.location %></small></p>-->
+<!--          <p class="card-text">-->
+<!--            <div id="favorite_%= @post.id %>">-->
+<!--              %= render "public/favorites/favorite-btn", post: @post %>-->
+<!--            </div>-->
+<!--          </p>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="col">-->
+<!--        <p>%= @post.body %></p>-->
+<!--        %= link_to :back do %>-->
+<!--          <button>一覧ページへ戻る</button>-->
+<!--        % end %>-->
+<!--        % if @post.customer_id == current_customer.id %>-->
+<!--          %= link_to '編集する', edit_post_path(@post) %>-->
+<!--        % end %>-->
+<!--        <div id="comment_%= @post.id %>">-->
+<!--          %= render "public/comments/comment", post: @post %>-->
+<!--        </div>-->
+<!--        <div class="new-comment">-->
+<!--          %= form_with(model:[@post, @comment]) do |f| %>-->
+<!--            %= f.text_area :comment, rows:'5',placeholder: "コメントしてみよう" %>-->
+<!--            %= f.submit "送信する" %>-->
+<!--          % end %>-->
+<!--        </div>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
