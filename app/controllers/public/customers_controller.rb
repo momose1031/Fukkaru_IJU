@@ -11,10 +11,10 @@ class Public::CustomersController < ApplicationController
     if current_customer.is_deleted == true
       redirect_to root_path, alert: "このユーザーは退会済みです"
     end
-    # respond_to do |format|
-    #   format.html
-    #   format.js
-    # end
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
   
   def edit

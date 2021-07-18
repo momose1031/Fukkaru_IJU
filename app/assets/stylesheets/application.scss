@@ -20,6 +20,7 @@
 body {
   background-image: url(tile.jpg);
 }
+
 // ここから　aboutページレイアウト
 // タイピング
  #typing {
@@ -126,11 +127,11 @@ body {
 
 #modal {
   background-color: #fff;
-  width: 300px;
+  width: 540px;
   padding: 20px;
   border-radius: 4px;
-  position: absolute;
-  top: 40px;
+  position: fixed;
+  top: 20vh;
   left: 0;
   right: 0;
   margin: 0 auto;

@@ -1,7 +1,7 @@
 var modal = document.getElementById('modal');
 var mask = document.getElementById('mask');
 
-modal.innerHTML = '<%= escape_javascript(render 'public/customers/show', customer: @customer) %>';
+modal.innerHTML = '<%= escape_javascript(render 'public/posts/show', { post: @post, comment: @comment }) %>';
 
 modal.classList.remove('hidden');
 mask.classList.remove('hidden');
@@ -10,8 +10,3 @@ mask.addEventListener('click', () => {
   modal.classList.add('hidden');
   mask.classList.add('hidden');
 });
-
-<!--close.addEventListener('click', () => {-->
-<!--  modal.classList.add('hidden');-->
-<!--  mask.classList.add('hidden');-->
-<!--});-->
