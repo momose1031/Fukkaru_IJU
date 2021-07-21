@@ -19,7 +19,16 @@
 //= require turbolinks
 // require_tree JSの読み込みを各viewごとに設定
 
-$(window).on('load',function(){
+// topページローディング
+$(window).on('turbolinks:load',function(){
   $("#splash").delay(1500).fadeOut('slow');
   $("#splash_logo").delay(1200).fadeOut('slow');
+});
+
+// ヘッダーハンバーガーメニュー
+$(function(){
+    $(".humburger").hide();
+    $(".fas").click(function(){//メニューボタンをクリックしたとき
+        $(".humburger").toggle(300);//0.3秒で表示したり非表示にしたりする
+    });
 });
