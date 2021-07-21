@@ -1,13 +1,13 @@
-<%= form_for @inquiry, :url => inquiry_confirm_path do |f| %>
+<%= form_for @contact, :url => contact_confirm_path do |f| %>
   <div class="page-header">
     <h1>お問い合わせ</h1>
   </div>
 
-  <% if @inquiry.errors.any? %>
+  <% if @contact.errors.any? %>
     <div class="alert alert-danger" role="alert">
       <strong>入力内容にエラーがあります</strong>
       <ul>
-        <% @inquiry.errors.each do |attr, msg| %>
+        <% @contact.errors.each do |attr, msg| %>
           <li><%= msg %></li>
         <% end %>
       </ul>

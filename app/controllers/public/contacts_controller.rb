@@ -19,5 +19,5 @@ class Public::ContactsController < ApplicationController
     ContactMailer.received_email(@contact).deliver
     render :action => 'complete'
   end
-  
+
 end
