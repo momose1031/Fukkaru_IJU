@@ -1,6 +1,6 @@
 class ContactMailer < ApplicationMailer
   
-  # default from: "メールアドレス環境変数入れる"
+  default from: ENV['SEND_MAIL']
   
   def received_email(contact)
     @contact = contact
