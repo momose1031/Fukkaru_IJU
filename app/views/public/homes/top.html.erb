@@ -1,9 +1,35 @@
 <div id="splash">
   <div id="splash_logo">
-    <%= image_tag 'intro.png', class: "fadeUp" %>  <!--<img src="img/loading.svg" alt="" class="fadeUp">-->
+    <%= image_tag 'intro.png', class: "fadeUp" %>
   </div>
 </div>
-<div id="container">
-  <h1>Public::Homes#top</h1>
-  <p>Find me in app/views/public/homes/top.html.erb</p>
+<div>
+
+  <div class="top-main">
+    <div class="slide-show">
+      <div class="a">
+        <div class="b"><img class="c" src="assets/917834_s.jpg"></div>
+        <div class="b"><img class="c" src="assets/3825261_s.jpg"></div>
+        <div class="b"><img class="c" src="assets/4465269_s.jpg"></div>
+        <div class="b"><img class="c" src="assets/4821048_s.jpg"></div>
+      </div>
+    </div>
+
+    <div class="theme">
+      <div>フッ軽に</div>
+      <div> I J U を</div>
+      <div> i n 山梨</div>
+    </div>
+
+    <div class="new-recommend">
+      <p>人気おすすめスポット</p>
+      <% @posts.each do |post| %>
+        <% if post.category == "おすすめスポット" %>
+          <%= attachment_image_tag post, :image %>
+          <%= post.title %>
+          <%= post.created_at.to_s(:datetime_jp) %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 </div>

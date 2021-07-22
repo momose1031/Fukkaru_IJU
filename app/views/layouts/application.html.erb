@@ -1,41 +1,21 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>FukkaruIju</title>
+    <title>フッ軽IJU</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
   </head>
 
   <body>
-    <% if admin_signed_in? %>
-      <li></li>
-      <li><%= link_to "おすすめスポット", admin_recommend_path %></li>
-      <li><%= link_to "空き家情報", admin_vacant_house_path %></li>
-      <li><%= link_to "ロゴを入れる", root_path %></li> <!--ロゴを入れる、path指定しない-->
-      <li><%= link_to "会員一覧", admin_customers_path %></li>
-      <li><%= link_to "ログアウト", destroy_admin_session_path, method: :delete %></li>
-      <li></li>
-    <% elsif customer_signed_in? %>
-      <li><%= link_to "フッ軽IJUとは", about_path %></li>
-      <li><%= link_to "おすすめスポット", recommend_path %></li>
-      <li><%= link_to "空き家情報", vacant_house_path %></li>
-      <li><%= link_to "ロゴを入れる", root_path %></li> <!--ロゴを入れる-->
-      <li><%= link_to "マイページ", customer_path(current_customer.id) %></li>
-      <li><%= link_to "ログアウト", destroy_customer_session_path, method: :delete %></li>
-      <li>HM</li> <!--会員一覧、お問い合わせ-->
-    <% else %>
-      <li><%= link_to "フッ軽IJUとは", about_path %></li>
-      <li><%= link_to "おすすめスポット", recommend_path %></li>
-      <li><%= link_to "空き家情報", vacant_house_path %></li>
-      <li><%= link_to "ロゴを入れる", root_path %></li> <!--ロゴを入れる-->
-      <li><%= link_to "新規登録", new_customer_registration_path %></li>
-      <li><%= link_to "ログイン", new_customer_session_path %></li>
-      <li>HM</li> <!--ゲストログイン会員一覧、お問い合わせ-->
-    <% end %>
-
-    <%= yield %>
+    <%= render 'layouts/header' %>
+    <div class="page">
+      <%= yield %>
+    </div>
   </body>
 </html>
