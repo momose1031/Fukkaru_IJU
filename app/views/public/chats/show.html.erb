@@ -1,0 +1,23 @@
+<div id="line-bc">
+  <div class="line-header">
+    <p>
+      <%= link_to customer_path(@customer) do %>
+        <%= @customer.name %>
+      <% end %>　さん
+    </p>
+    <ul>
+      <li><i class="fas fa-list-ol"></i></li>
+      <li><i class="fas fa-phone"></i></li>
+      <li><i class="fas fa-search"></i></li>
+    </ul>
+  </div>
+  <div id="chat-ajax">
+    <%= render "public/chats/chat", chats: @chats %>
+  </div>
+</div>
+
+<%= form_with model: @chat, remote: true do |f| %>
+  <%= f.text_field :message %>
+  <%= f.hidden_field :room_id %>
+  <%= f.submit %>
+<% end %>

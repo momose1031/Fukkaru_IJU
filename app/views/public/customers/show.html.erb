@@ -1,0 +1,10 @@
+<div class="row text-center m-5">
+  <div class="col text-center">
+    <% if @customer == current_customer %>
+      <h2>マイページ</h2>
+    <% else %>
+      <h2>会員詳細</h2>
+    <% end %>
+  </div>
+</div>
+<%= render 'public/customers/show', customer: @customer %>

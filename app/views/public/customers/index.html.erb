@@ -1,0 +1,33 @@
+<div class="row text-center pt-5">
+  <div class="col-sm-8">
+    <h2>会員一覧</h2>
+  </div>
+  <div class="col-sm-4">
+    <p>
+      <%= search_form_for @q, url: customers_path do |f| %>
+        <%= f.search_field :name_or_introduction_cont, placeholder: "ユーザー名を検索...", class: "form-control" %>
+        <%= f.submit "検索", class: "btn btn-primary" %>
+      <% end %>
+    </p>
+  </div>
+</div>
+
+<div class="card-deck p-5">
+  <div class="row">
+    <%= render 'public/customers/customers', customers: @customers %>
+  </div>
+</div>
+
+<!--<div class="row">-->
+<!--  <div class="text-center mx-auto mb-3">-->
+<!--    %= paginate @customers %>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--無限スクロールを設置-->
+
+<div id="mask" class="hidden"></div>
+<div id="modal" class="hidden">
+  <p>モーダルウィンドウ<p>
+  <div id="close">閉じる</div>
+</div>

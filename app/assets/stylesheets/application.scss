@@ -1,0 +1,403 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+ @import "bootstrap";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
+
+body {
+  background-image: url(tile.jpg);
+}
+
+// ここからheader
+
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 70px;
+  background-color: #333;
+  display: flex;
+  x-index: 999999;
+}
+
+.page {
+  padding-bottom: 150px;
+  margin-top: 70px;
+}
+
+.logo-size {
+  width: 228px;
+  height: 70px;
+}
+
+nav {
+  margin-left: auto;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+}
+
+.nav-item {
+  color: #fff;
+  width: 100px;
+  text-align: center;
+  font-size: 13px;
+  padding-top: 10px;
+}
+
+.nav-link {
+  width: 100px;
+  text-align: center;
+  display: block;
+  text-decoration: none;
+  color: #fff;
+}
+
+.fas {
+  padding-top: 5px;
+}
+
+// .humberger {
+//   posision: absolute;
+// }
+// ここまでheader
+
+// ここからトップページ
+// ローディング
+#splash {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+  background:#333;
+  text-align:center;
+  color:#fff;
+}
+
+#splash_logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.fadeUp{
+  animation-name: fadeUpAnime;
+  animation-duration:0.5s;
+  animation-fill-mode:forwards;
+  opacity: 0;
+}
+
+@keyframes fadeUpAnime{
+  from {
+    opacity: 0;
+  transform: translateY(100px);
+  }
+
+  to {
+    opacity: 1;
+  transform: translateY(0);
+  }
+}
+
+// トップページ　メイン
+.slide-show {
+  width: 80%;
+  height: 700px;
+  border: 5px solid black;
+  margin: 0 auto;
+}
+
+.c{
+  height: 690px;
+  width : 100%;
+}
+
+.slick-dots {
+  li {
+    font-size: 20px !important;
+    button:before {
+      content: "★" !important;
+      font-size: 14px !important;
+      color: rgb(60, 60, 60) !important;
+    }
+  }
+}
+
+.theme {
+  width: 100%;
+  font-size: 50px;
+  margin-top: 400px;
+  margin-bottom: 400px;
+  text-align: center;
+  // font-weight: bold;
+  font-family: 'Yu Mincho Light', 'YuMincho', 'Yu Mincho', '游明朝体', sans-serif;
+}
+
+
+// ここまで　トップページ
+
+// ここから　aboutページレイアウト
+// タイピング
+ #typing {
+  height: 700px;
+  border: 5px solid black;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background: linear-gradient(to top, rgba(217, 175, 217, 0.7) 0%, rgba(151, 217, 225, 0.7) 100%),url(illust_grape.png);
+  background-repeat: no-repeat;
+  background-position: right;
+  cursor: pointer;
+}
+
+#typing div {
+  font-size: 50px;
+}
+
+#typing p {
+  margin-top: 100px;
+}
+
+// タブメニュー
+.tab-menu {
+  font-size: 14px;
+  margin: 200px auto;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.menu li a {
+  display: inline-block;
+  width: 150px;
+  text-align: center;
+  padding: 8px 0;
+  color: purple;
+  text-decoration: none;
+  border-radius: 4px 4px 0 0;
+}
+
+.menu li a.active {
+  background-color: purple;
+  color: #fff;
+}
+
+.menu li a:not(.active):hover {
+  transition: 0.4s;
+}
+
+.content.active {
+  background-color: purple;
+  color: #fff;
+  font-size: 20px;
+  min-height: 300px;
+  padding: 12px;
+  display: block;
+  animation-name: displayAnime;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes displayAnime{
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+
+.content {
+  display: none;
+}
+
+.about-bottom {
+  margin-top: 100px;
+  margin-right: 20px;
+  display: flex;
+}
+
+.about-bottom img {
+  margin-top: 150px;
+}
+
+// ここまで　aboutページレイアウト
+
+// ここから　モーダルウィンドウ
+#mask {
+  background-color: rgba(0, 0, 0, 0.4);
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  z-index: 1;
+}
+
+#modal {
+  background-color: #fff;
+  width: 540px;
+  padding: 20px;
+  border-radius: 4px;
+  position: fixed;
+  top: 20vh;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  transition: transform 0.4s;
+  z-index: 2;
+}
+
+#mask.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+#modal.hidden {
+  opacity: 0;
+  visibility: hidden;
+  transform: translate(0, -500px);
+}
+// ここまで　モーダルウィンドウ
+
+// ここから　LINE風
+#line-bc {
+  max-width: 450px;
+  margin: 15px auto;
+  text-align: right;
+  font-size: 14px;
+  background: #7da4cd;
+  border: #fff solid 10px;
+}
+
+.line-header {
+  height: 60px;
+  width: 100%;
+  background: black;
+  line-height: 50px;
+}
+
+.line-header p {
+  color: #fff;
+  float: left;
+  margin-left: 30px;
+}
+
+.line-header li {
+  list-style: none;
+  float: right;
+  color: #fff;
+  padding: 10px;
+}
+
+//左側メッセージ
+.line-admin {
+  width: 100%;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.line-admin .a-faceicon {
+  float: left;
+  margin-right: -50px;
+  width: 40px;
+}
+
+.line-admin .a-faceicon .left-img {
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.line-admin .chatting {
+  width: 100%;
+  text-align: left;
+}
+
+.says {
+  display: inline-block;
+  position: relative;
+  margin: 0 0 0 50px;
+  padding: 10px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #edf1ee;
+}
+
+.says:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  left: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid #edf1ee;
+  transform: rotate(35deg);
+}
+
+.says p {
+  margin: 0;
+  padding: 0;
+}
+
+// 右側メッセージ
+.line-customer {
+  margin: 10px 0;
+}
+
+.line-customer .c-faceicon {
+  float: right;
+  margin-right: 0;
+  width: 40px;
+}
+
+.line-customer .c-faceicon .right-img{
+  width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+
+.line-customer p {
+  display: inline-block;
+  position: relative;
+  margin: 0 10px 0 0;
+  padding: 8px;
+  max-width: 250px;
+  border-radius: 12px;
+  background: #30e852;
+  font-size: 15px;
+}
+
+.line-customer p:after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  right: -19px;
+  border: 8px solid transparent;
+  border-left: 18px solid #30e852;
+  transform: rotate(-35deg);
+}
+// ここまで　LINE風

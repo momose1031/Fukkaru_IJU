@@ -1,0 +1,42 @@
+<div class="row text-center m-5">
+  <div class="col text-center">
+    <h2>会員No.<%= @customer.id %></h2>
+  </div>
+</div>
+<div class="row text-center">
+  <div class="card mb-3 mx-auto bg-light" style="max-width: 540px;">
+    <div class="row no-gutters">
+      <div class="col-md-4">
+        <%= attachment_image_tag @customer, :image, fallback: "illust_human.jpg", class: "rounded-circle p-5" %>
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h3 class="card-title"><%= @customer.name %><span style="font-size: 10px">さん</span></h3>
+          <% if @customer.country == 0 %>
+            <p class="card-text">山梨県民</p>
+          <% else %>
+            <p class="card-text">移住に興味のある方</p>
+          <% end %>
+          <p class="card-text"><small class="text-muted">投稿数：</small></p>
+          <p class="card-text"><small class="text-muted">フォロー数：</small></p>
+          <p class="card-text"><small class="text-muted">フォロワー数：</small></p>
+        </div>
+      </div>
+      <div class="col">
+        <% if @customer.introduction == nil %>
+          <p>自己紹介文なし</p>
+        <% else %>
+          <p><%= @customer.introduction %></p>
+        <% end %>
+        <% if @customer.is_deleted == true %>
+          <p class="text-secondary">退会</p>
+        <% else %>
+          <p class="text-success">有効</p>
+        <% end %>
+        <p>登録日：<%= @customer.created_at.to_s(:datetime_jp) %></p>
+        <p>更新日：<%= @customer.updated_at.to_s(:datetime_jp) %></p>
+        <%= link_to '編集する', edit_admin_customer_path(@customer) %>
+      </div>
+    </div>
+  </div>
+</div>
