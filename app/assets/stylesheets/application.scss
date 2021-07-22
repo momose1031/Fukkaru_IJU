@@ -31,7 +31,7 @@ body {
   height: 70px;
   background-color: #333;
   display: flex;
-  x-index: 999;
+  x-index: 999999;
 }
 
 .page {
@@ -71,7 +71,7 @@ nav ul {
 
 .fas {
   padding-top: 5px;
-} 
+}
 
 // .humberger {
 //   posision: absolute;
@@ -79,7 +79,7 @@ nav ul {
 // ここまでheader
 
 // ここからトップページ
-
+// ローディング
 #splash {
   position: fixed;
   width: 100%;
@@ -97,15 +97,11 @@ nav ul {
   transform: translate(-50%, -50%);
 }
 
-// #splash_logo img {
-//   width:260px;
-// }
-
 .fadeUp{
-animation-name: fadeUpAnime;
-animation-duration:0.5s;
-animation-fill-mode:forwards;
-opacity: 0;
+  animation-name: fadeUpAnime;
+  animation-duration:0.5s;
+  animation-fill-mode:forwards;
+  opacity: 0;
 }
 
 @keyframes fadeUpAnime{
@@ -119,6 +115,41 @@ opacity: 0;
   transform: translateY(0);
   }
 }
+
+// トップページ　メイン
+.slide-show {
+  width: 80%;
+  height: 700px;
+  border: 5px solid black;
+  margin: 0 auto;
+}
+
+.c{
+  height: 690px;
+  width : 100%;
+}
+
+.slick-dots {
+  li {
+    font-size: 20px !important;
+    button:before {
+      content: "★" !important;
+      font-size: 14px !important;
+      color: rgb(60, 60, 60) !important;
+    }
+  }
+}
+
+.theme {
+  width: 100%;
+  font-size: 50px;
+  margin-top: 400px;
+  margin-bottom: 400px;
+  text-align: center;
+  // font-weight: bold;
+  font-family: 'Yu Mincho Light', 'YuMincho', 'Yu Mincho', '游明朝体', sans-serif;
+}
+
 
 // ここまで　トップページ
 

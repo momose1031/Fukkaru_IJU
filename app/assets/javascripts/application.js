@@ -27,8 +27,17 @@ $(window).on('turbolinks:load',function(){
 
 // ヘッダーハンバーガーメニュー
 $(function(){
-    $(".humburger").hide();
-    $(".fas").click(function(){//メニューボタンをクリックしたとき
-        $(".humburger").toggle(300);//0.3秒で表示したり非表示にしたりする
-    });
+  $(".humburger").hide();
+  $(".fas").click(function(){//メニューボタンをクリックしたとき
+    $(".humburger").toggle(300);//0.3秒で表示したり非表示にしたりする
+  });
+});
+
+// topページ スライドショー
+$(function() {
+  $('.a').slick({
+    dots: true,
+    autoplay: true,
+    autoplaySpeed: 1000,
+  });
 });

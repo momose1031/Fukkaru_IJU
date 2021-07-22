@@ -37,8 +37,10 @@
     <% end %>
   </div>
 </div>
-<% if current_customer.country == 0 %>
-  <p><%= link_to "新規投稿する", new_post_path %></p>
+<% if customer_signed_in? %>
+  <% if current_customer.country == "県内の方" %>
+    <p><%= link_to "新規投稿する", new_post_path %></p>
+  <% end %>
 <% end %>
 
 <!--<div class="row">-->
