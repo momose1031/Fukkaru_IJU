@@ -6,7 +6,7 @@
 <div>
 
 <div class="top-img">
-  <img src="assets/iju.jpg">
+  <%= image_tag "iju.jpg" %>
   <div class="img-title">地方移住<br>してみませんか...?</div>
 </div>
  
@@ -18,12 +18,14 @@
 
 <div class="top-recommend">
   <p>新着おすすめスポット</p>
-  <div class="flex">
+  <div class="top-flex">
     <% @posts.each do |post| %>
       <% if post.category == "おすすめスポット" %>
-        <%= attachment_image_tag post, :image, class: "img-tag" %><br>
-        <%= post.title %><br>
-        <%= post.created_at.to_s(:datetime_jp) %><br>
+        <div class="recommend-item">
+          <%= attachment_image_tag post, :image, class: "mini-img-tag" %><br>
+          <%= post.title %><br>
+          <%= post.created_at.to_s(:datetime_jp) %>
+        </div>
       <% end %>
     <% end %>
   </div>
@@ -32,12 +34,14 @@
 
 <div class="top-vacant-house">
   <p>新着空き家情報</p>
-  <div class="flex">
+  <div class="top-flex">
     <% @posts.each do |post| %>
       <% if post.category == "空き家情報" %>
-        <%= attachment_image_tag post, :image, class: "img-tag" %><br>
-        <%= post.title %><br>
-        <%= post.created_at.to_s(:datetime_jp) %><br>
+        <div class="vacant-house-item">
+          <%= attachment_image_tag post, :image, class: "mini-img-tag" %><br>
+          <%= post.title %><br>
+          <%= post.created_at.to_s(:datetime_jp) %>
+        </div>
       <% end %>
     <% end %>
   </div>
@@ -48,46 +52,51 @@
   <img src="assets/mt_fuji.png">
 </div>
 
-<div>
-  <h3>地方移住してみませんか？</h3>
-  <p>
-    昨今の生活様式の変化により、<br>
-    テレワークが推奨され
-    地方移住に関心のある方が増えています。
-  </p>
-  <p>
-    当サイトでは、地方移住に興味を持ってもらえるよう、<br>
-    地方の魅力を伝えながら住まいを探す手助けをしています。
-  </p>
-</div>
-
-  <div id="line-top">
-    <div class="line-header">
-      <p>やまなしマン</p>
-      <ul>
-        <li><i class="fas fa-list-ol"></i></li>
-        <li><i class="fas fa-phone"></i></li>
-        <li><i class="fas fa-search"></i></li>
-      </ul>
-    </div>
-    <!-- 左のコメント -->
-    <div class="line-admin">
-      <div class="a-faceicon">
-        <!--<img src="img/富士山.jpg">-->
+<div class="top-bottom">
+  <div class="top-bottom-left">
+    <h3>地方移住してみませんか？</h3>
+    <p>
+      昨今の生活様式の変化により、<br>
+      テレワークが推奨され
+      地方移住に関心のある方が増えています。
+    </p>
+    <p>
+      当サイトでは、地方移住に興味を持ってもらえるよう、<br>
+      地方の魅力を伝えながら住まいを探す手助けをしています。
+    </p>
+  </div>
+  <div class="top-bottom-right">
+    <div id="line-top">
+      <div class="line-header">
+        <p>やまなしマン</p>
+        <ul>
+          <li><i class="fas fa-list-ol"></i></li>
+          <li><i class="fas fa-phone"></i></li>
+          <li><i class="fas fa-search"></i></li>
+        </ul>
       </div>
-      <div class="chatting">
-        <div class="says">
-          <p>山梨ってどんなところ？</p>
+      <!-- 左のコメント -->
+      <div class="line-admin">
+        <div class="a-faceicon">
+          <!--<img src="img/富士山.jpg">-->
+        </div>
+        <div class="chatting">
+          <div class="says">
+            <p>山梨ってどんなところ？</p>
+          </div>
+        </div>
+      </div>
+      <!--右のコメント-->
+      <div class="line-customer">
+        <p>教えて〜！</p>
+        <div class="c-faceicon">
+          <!--<img src="img/富士山.jpg">-->
         </div>
       </div>
     </div>
-    <!--右のコメント-->
-    <div class="line-customer">
-      <p>教えて〜！</p>
-      <div class="c-faceicon">
-        <!--<img src="img/富士山.jpg">-->
-      </div>
-    </div>
+    <div id="btn-admin">やまなしの魅力</div>
+    <div id="btn-customer">返信する</div>
   </div>
-  <div id="btn-admin">やまなしの魅力</div>
-  <div id="btn-customer">返信する</div>
+</div>
+
+<%= javascript_include_tag 'homes_top.js' %>
