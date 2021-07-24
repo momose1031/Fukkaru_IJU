@@ -21,7 +21,7 @@ body {
   background-image: image-url("tile.jpg");
 }
 
-.img-tag {
+.mini-img-tag {
   width: 200px;
   height: 200px;
 }
@@ -123,6 +123,8 @@ nav ul {
   animation-duration: 1.0s;
   animation-fill-mode: f orwards;
   opacity: 0;
+  width: 200px;
+  height: 200px;
 }
 
 @keyframes fadeUpAnime{
@@ -171,12 +173,16 @@ nav ul {
 }
 
 .top-vacant-house {
-  margin: 300px 30px;
+  margin: 200px 30px;
 }
 
-.flex {
+.top-flex {
   display: flex;
-  margin-right: 10px;
+  text-align: center;
+}
+
+.recommend-item, .vacant-house-item{
+  margin: 50px;
 }
 
 .top-second-img {
@@ -196,6 +202,34 @@ nav ul {
   border: #fff solid 10px;
 }
 
+#btn-admin {
+  cursor: pointer;
+  width: 300px;
+  height: 36px;
+  background-color: #c70dec;
+  box-shadow: 0 4px 0 #6a0683;
+  border-radius: 18px;
+  text-align: center;
+  line-height: 32px;
+  color: #fff;
+  user-select: none;
+  margin: 10px auto;
+}
+
+#btn-customer {
+  cursor: pointer;
+  width: 300px;
+  height: 36px;
+  background-color: #e4007f;
+  box-shadow: 0 4px 0 #584307;
+  border-radius: 18px;
+  text-align: center;
+  line-height: 32px;
+  color: #fff;
+  user-select: none;
+  margin: 0 auto;
+}
+
 // ここまで　トップページ
 
 // ここから　aboutページレイアウト
@@ -208,7 +242,7 @@ nav ul {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: linear-gradient(to top, rgba(217, 175, 217, 0.7) 0%, rgba(151, 217, 225, 0.7) 100%),url(illust_grape.png);
+  background: linear-gradient(to top, rgba(217, 175, 217, 0.7) 0%, rgba(151, 217, 225, 0.7) 100%),url("illust_grape.png");
   background-repeat: no-repeat;
   background-position: right;
   cursor: pointer;
