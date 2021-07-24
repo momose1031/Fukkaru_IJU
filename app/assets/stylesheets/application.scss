@@ -18,7 +18,12 @@
  @import 'font-awesome';
 
 body {
-  background-image: image-url(tile.jpg);
+  background-image: url(tile.jpg);
+}
+
+.img-tag {
+  width: 200px;
+  height: 200px;
 }
 
 // ここからheader
@@ -78,16 +83,32 @@ nav ul {
 // }
 // ここまでheader
 
+// ここからfooter
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 20px;
+  background-color: #333;
+  text-align: center;
+  color: #fff;
+}
+// ここまでfooter
+
 // ここからトップページ
 // ローディング
 #splash {
   position: fixed;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   z-index: 999;
-  background:#333;
-  text-align:center;
-  color:#fff;
+  background: #333;
+  text-align: center;
+  color: #fff;
 }
 
 #splash_logo {
@@ -99,8 +120,8 @@ nav ul {
 
 .fadeUp{
   animation-name: fadeUpAnime;
-  animation-duration:0.5s;
-  animation-fill-mode:forwards;
+  animation-duration: 1.0s;
+  animation-fill-mode: f orwards;
   opacity: 0;
 }
 
@@ -117,39 +138,63 @@ nav ul {
 }
 
 // トップページ　メイン
-.slide-show {
-  width: 80%;
-  height: 700px;
-  border: 5px solid black;
-  margin: 0 auto;
+
+.top-img {
+  position: relative;
+  border: 5px solid #fff;
 }
 
-.c{
-  height: 690px;
-  width : 100%;
+.top-img img {
+  width: 100%;
 }
 
-.slick-dots {
-  li {
-    font-size: 20px !important;
-    button:before {
-      content: "★" !important;
-      font-size: 14px !important;
-      color: rgb(60, 60, 60) !important;
-    }
-  }
+.img-title {
+  position: absolute;
+  top: 35%;
+  left: 50%;
+  color: #fff;
+  font-size: 70px;
+  font-family: 'Yu Mincho Light', 'YuMincho', 'Yu Mincho', '游明朝体', sans-serif;
 }
 
 .theme {
   width: 100%;
   font-size: 50px;
   margin-top: 400px;
-  margin-bottom: 400px;
+  margin-bottom: 500px;
   text-align: center;
-  // font-weight: bold;
   font-family: 'Yu Mincho Light', 'YuMincho', 'Yu Mincho', '游明朝体', sans-serif;
 }
 
+.top-recommend {
+  margin: 0 30px;
+}
+
+.top-vacant-house {
+  margin: 300px 30px;
+}
+
+.flex {
+  display: flex;
+  margin-right: 10px;
+}
+
+.top-second-img {
+  text-align: center;
+}
+
+.top-second-img img {
+  width: 50%;
+}
+
+#line-top {
+  max-width: 450px;
+  margin: 15px auto;
+  text-align: right;
+  font-size: 14px;
+  background: #7da4cd;
+  border: #fff solid 10px;
+}
 
 // ここまで　トップページ
 
@@ -163,7 +208,7 @@ nav ul {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: linear-gradient(to top, rgba(217, 175, 217, 0.7) 0%, rgba(151, 217, 225, 0.7) 100%),image-url(illust_grape.png);
+  background: linear-gradient(to top, rgba(217, 175, 217, 0.7) 0%, rgba(151, 217, 225, 0.7) 100%),url(illust_grape.png);
   background-repeat: no-repeat;
   background-position: right;
   cursor: pointer;
