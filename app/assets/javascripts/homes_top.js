@@ -33,18 +33,19 @@ const lineCustomers = [
   'なんか山梨住みたくなってきたなぁ…'
 ]
 
-const line = document.getElementById('line-top');
+let line = document.getElementById('line-top');
 const btn1 = document.getElementById('btn-admin');
 const btn2 = document.getElementById('btn-customer');
 
 btn1.addEventListener('click', () => {
-  const lineAdmin = document.createElement('div');
+  var lineAdmin = document.createElement('div');
   lineAdmin.classList.add('line-admin');
   const afaceicon = document.createElement('div');
   afaceicon.classList.add('a-faceicon');
-  // const aImg = document.createElement('img');
-  // aImg.src = "img/富士山.jpg";
-  // afaceicon.appendChild(aImg);
+  const aImg = document.createElement('img');
+  aImg.src = "assets/peach.jpg";
+  aImg.classList.add('left-img')
+  afaceicon.appendChild(aImg);
   lineAdmin.appendChild(afaceicon);
   const chatting = document.createElement('div');
   chatting.classList.add('chatting');
@@ -66,9 +67,10 @@ btn2.addEventListener('click', () => {
   lineCustomer.appendChild(p2);
   const cfaceicon = document.createElement('div');
   cfaceicon.classList.add('c-faceicon');
-  // const cImg = document.createElement('img');
-  // cImg.src = "img/富士山.jpg";
-  // cfaceicon.appendChild(cImg);
+  const cImg = document.createElement('img');
+  cImg.src = "assets/illust_human.jpg";
+  cImg.classList.add('right-img')
+  cfaceicon.appendChild(cImg);
   lineCustomer.appendChild(cfaceicon);
   line.appendChild(lineCustomer);
 });

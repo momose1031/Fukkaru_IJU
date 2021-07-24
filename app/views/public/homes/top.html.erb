@@ -1,6 +1,6 @@
 <div id="splash">
   <div id="splash_logo">
-    <%= image_tag 'intro.png', class: "fadeUp" %>
+    <%= image_tag "intro.png", class: "fadeUp" %>
   </div>
 </div>
 <div>
@@ -9,7 +9,7 @@
   <%= image_tag "iju.jpg" %>
   <div class="img-title">地方移住<br>してみませんか...?</div>
 </div>
- 
+
 <div class="theme">
   <div>フッ軽に</div>
   <div> I J U を</div>
@@ -22,14 +22,16 @@
     <% @posts.each do |post| %>
       <% if post.category == "おすすめスポット" %>
         <div class="recommend-item">
-          <%= attachment_image_tag post, :image, class: "mini-img-tag" %><br>
+          <%= link_to post_path(post) do %>
+            <%= attachment_image_tag post, :image, class: "mini-img-tag" %><br>
+          <% end %>
           <%= post.title %><br>
           <%= post.created_at.to_s(:datetime_jp) %>
         </div>
       <% end %>
     <% end %>
   </div>
-  <p>もっと見る</p>
+  <p class="top-link"><%= link_to "もっと見る", recommend_path %></p>
 </div>
 
 <div class="top-vacant-house">
@@ -38,33 +40,42 @@
     <% @posts.each do |post| %>
       <% if post.category == "空き家情報" %>
         <div class="vacant-house-item">
-          <%= attachment_image_tag post, :image, class: "mini-img-tag" %><br>
+          <%= link_to post_path(post) do %>
+            <%= attachment_image_tag post, :image, class: "mini-img-tag" %><br>
+          <% end %>
           <%= post.title %><br>
           <%= post.created_at.to_s(:datetime_jp) %>
         </div>
       <% end %>
     <% end %>
   </div>
-  <p>もっと見る</p>
+  <p class="top-link"><%= link_to "もっと見る", vacant_house_path %></p>
 </div>
 
 <div class="top-second-img">
-  <img src="assets/mt_fuji.png">
+  <%= image_tag "mt_fuji.png" %>
 </div>
 
 <div class="top-bottom">
   <div class="top-bottom-left">
-    <h3>地方移住してみませんか？</h3>
-    <p>
-      昨今の生活様式の変化により、<br>
-      テレワークが推奨され
-      地方移住に関心のある方が増えています。
-    </p>
-    <p>
-      当サイトでは、地方移住に興味を持ってもらえるよう、<br>
-      地方の魅力を伝えながら住まいを探す手助けをしています。
-    </p>
+    <div class="introduction">
+      <h3>地方移住してみませんか？</h3>
+      <p>
+        昨今の生活様式の変化により、<br>
+        テレワークが推奨され
+        地方移住に関心のある方が増えています。
+      </p>
+      <p>
+        当サイトでは、地方移住に興味を持ってもらえるよう、<br>
+        地方の魅力を伝えながら住まいを探す手助けをしています。
+      </p>
+    </div>
+    <div class="map">
+      <h3>山梨の中心地はこちら</h3>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.521734000148!2d138.5662718152001!3d35.6641533385158!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x601bf9d1d752b661%3A0xdc3d03fe8c0351f4!2z5bGx5qKo55yM5bqB!5e0!3m2!1sja!2sjp!4v1627142989170!5m2!1sja!2sjp" width="450px" height="300px" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    </div>
   </div>
+
   <div class="top-bottom-right">
     <div id="line-top">
       <div class="line-header">
@@ -78,7 +89,7 @@
       <!-- 左のコメント -->
       <div class="line-admin">
         <div class="a-faceicon">
-          <!--<img src="img/富士山.jpg">-->
+          <%= image_tag "peach.jpg", class: "left-img" %>
         </div>
         <div class="chatting">
           <div class="says">
@@ -90,7 +101,7 @@
       <div class="line-customer">
         <p>教えて〜！</p>
         <div class="c-faceicon">
-          <!--<img src="img/富士山.jpg">-->
+          <%= image_tag "illust_human.jpg", class: "right-img" %>
         </div>
       </div>
     </div>
