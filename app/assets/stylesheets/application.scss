@@ -185,12 +185,38 @@ nav ul {
   margin: 50px;
 }
 
+.top-link {
+  float: right;
+  margin-right: 100px;
+}
+
 .top-second-img {
   text-align: center;
 }
 
 .top-second-img img {
   width: 50%;
+}
+
+.top-bottom {
+  width: 100%;
+  display: flex;
+  margin-top: 300px;
+}
+
+.top-bottom-left {
+  width: 50%;
+  text-align: center;
+  font-family: 'Yu Mincho Light', 'YuMincho', 'Yu Mincho', '游明朝体', sans-serif;
+}
+
+.map {
+  margin-top: 40px;
+}
+
+.top-bottom-right {
+  width: 50%;
+  text-align: center;
 }
 
 #line-top {

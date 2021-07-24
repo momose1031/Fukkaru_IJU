@@ -19,10 +19,12 @@
       <div class="col">
         <p><%= post.body %></p>
         <%= link_to :back do %>
-          <button>一覧ページへ戻る</button>
+          <button>前ページへ戻る</button>
         <% end %>
-        <% if post.customer_id == current_customer.id %>
-          <%= link_to '編集する', edit_post_path(post) %>
+        <% if customer_signed_in? %>
+          <% if post.customer_id == current_customer.id %>
+            <%= link_to '編集する', edit_post_path(post) %>
+          <% end %>
         <% end %>
         <div id="comment_<%= post.id %>">
           <%= render "public/comments/comment", post: @post %>
