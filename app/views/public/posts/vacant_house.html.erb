@@ -1,8 +1,13 @@
-<div class="row text-center pt-5">
-  <div class="col-sm-8">
+<div class="row text-center titles">
+  <div class="col-md-8">
     <h2>空き家情報一覧</h2>
+    <% if customer_signed_in? %>
+      <% if current_customer.country == 0 %>
+        <p><%= link_to "新規投稿する", new_post_path %></p>
+      <% end %>
+    <% end %>
   </div>
-  <div class="col-sm-4">
+  <div class="col-md-4">
     <p>
       <%= search_form_for @q, url: vacant_house_path do |f| %>
         <%= f.search_field :title_or_body_or_location_cont, placeholder: "空き家情報を検索...", class: "form-control" %>
@@ -19,7 +24,7 @@
         <div class="col-sm-4 mt-5">
           <div class="card bg-light pt-3">
             <%= link_to post_path(post), remote: true, class: "mx-auto" do %>
-              <%= attachment_image_tag post, :image, class: "rounded-circle" %>
+              <%= attachment_image_tag post, :image, class: "rounded-circle img-fluid" %>
             <% end %>
             <div class="card-body text-center">
               <h5 class="card-title"><%= post.title %></h5>
@@ -29,7 +34,7 @@
               <p class="card-text">
                 場所：<%= post.location %>
               </p>
-              <p>お気に入り登録数</p>
+              <p><%= post.favorites.count %>いいね</p>
             </div>
           </div>
         </div>
@@ -37,19 +42,7 @@
     <% end %>
   </div>
 </div>
-<% if customer_signed_in? %>
-  <% if current_customer.country == "県内の方" %>
-    <p><%= link_to "新規投稿する", new_post_path %></p>
-  <% end %>
-<% end %>
 
-<!--<div class="row">-->
-<!--  <div class="text-center mx-auto mb-3">-->
-<!--    %= paginate @customers %>-->
-<!--  </div>-->
-<!--</div>-->
-
-<!--無限スクロールを設置-->
 
 <div id="mask" class="hidden"></div>
 <div id="modal" class="hidden">

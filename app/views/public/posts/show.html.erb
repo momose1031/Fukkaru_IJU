@@ -1,6 +1,17 @@
-<div class="row text-center m-5">
+<div class="row text-center titles">
   <div class="col text-center">
     <h2>投稿詳細</h2>
   </div>
 </div>
-<%= render 'public/posts/show', { post: @post, comment: @comment } %>
+<%= render 'public/posts/show', post: @post %>
+<div class="text-center">
+  <div class="new-comment">
+    <%= form_with(model:[@post, @comment]) do |f| %>
+      <%= f.text_area :comment, rows:'5',placeholder: "コメントしてみよう" %>
+      <%= f.submit "送信する" %>
+    <% end %>
+  </div>
+  <div id="comment_<%= @post.id %>">
+    <%= render "public/comments/comment", post: @post %>
+  </div>
+</div>

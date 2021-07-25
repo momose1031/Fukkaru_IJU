@@ -1,19 +1,39 @@
-<h2>投稿フォーム</h2>
-
-<%= form_with model: @post, local:true do |f| %>
-  <h4>画像</h4>
-  <p><%= f.attachment_field :image %></p>
-  <h4>タイトル</h4>
-  <p><%= f.text_field :title %></p>
-  <h4>内容</h4>
-  <p><%= f.text_area :body %></p>
-  <h4>場所</h4>
-  <p><%= f.text_field :location %></p>
-  <p><%= f.radio_button :category, "おすすめスポット", checked: "checked" %>おすすめスポットの投稿</p>
-  <% if current_customer.country == 0 %>
-    <p><%= f.radio_button :category, "空き家情報" %>空き家情報の投稿</p>
-  <% end %>
-  <p><%= f.submit '投稿' %></p>
-<% end %>
-
-<%= link_to "戻る", :back %>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="card card-sets">
+        <div class="card-body">
+          <h3 class="card-titles">新規投稿</h3>
+          <%= form_with model: @post, local:true do |f| %>
+            <div class="form-group">
+              <%= f.label :投稿画像 %><br>
+              <%= f.attachment_field :image %>
+            </div>
+            <div class="form-group">
+              <%= f.label :タイトル %>
+              <%= f.text_field :title, autofocus: true, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :内容 %>
+              <%= f.text_area :body, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.label :場所 %>
+              <%= f.text_field :location, class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.radio_button :category, "おすすめスポット", checked: "checked" %>おすすめスポット
+              <% if current_customer.country == 0 %>
+                <%= f.radio_button :category, "空き家情報" %>空き家情報
+              <% end %>
+            </div>
+              <%= f.submit "編集する", class: "btn btn-success w-100 card-btn" %>
+          <% end %>
+        </div>
+      </div>
+      <%= link_to :back do %>
+        <button class="back-btn">前ページへ戻る</button>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -21,7 +21,7 @@ Rails.application.routes.draw do
     end
     get 'unsubscribe' => 'customers#unsubscribe'
     patch 'withdraw' => 'customers#withdraw'
-    resources :posts, except: [:index] do
+    resources :posts do
       resource :favorites, only: [:create, :destroy]
       resources :comments, only: [:create, :destroy]
     end

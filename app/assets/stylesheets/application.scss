@@ -19,12 +19,9 @@
 
 body {
   background-image: image-url("tile.jpg");
+  font-family: 'Yu Mincho Light', 'YuMincho', 'Yu Mincho', '游明朝体', sans-serif;
 }
 
-.mini-img-tag {
-  width: 200px;
-  height: 200px;
-}
 
 // ここからheader
 
@@ -156,7 +153,6 @@ nav ul {
   left: 50%;
   color: #fff;
   font-size: 70px;
-  font-family: 'Yu Mincho Light', 'YuMincho', 'Yu Mincho', '游明朝体', sans-serif;
 }
 
 .theme {
@@ -165,7 +161,11 @@ nav ul {
   margin-top: 400px;
   margin-bottom: 500px;
   text-align: center;
-  font-family: 'Yu Mincho Light', 'YuMincho', 'Yu Mincho', '游明朝体', sans-serif;
+}
+
+.mini-img-tag {
+  width: 200px;
+  height: 200px;
 }
 
 .top-recommend {
@@ -207,11 +207,10 @@ nav ul {
 .top-bottom-left {
   width: 50%;
   text-align: center;
-  font-family: 'Yu Mincho Light', 'YuMincho', 'Yu Mincho', '游明朝体', sans-serif;
 }
 
 .map {
-  margin-top: 40px;
+  margin-top: 80px;
 }
 
 .top-bottom-right {
@@ -358,6 +357,10 @@ nav ul {
 // ここまで　aboutページレイアウト
 
 // ここから　bootstrap使用formページ
+
+.titles {
+  margin-top: 150px;
+}
 
 .card-sets {
   margin-top: 150px;

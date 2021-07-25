@@ -1,8 +1,8 @@
-<div class="row text-center pt-5">
-  <div class="col-sm-8">
-    <h2>会員一覧</h2>
+<div class="row text-center titles">
+  <div class="col-md-8">
+    <h3>会員一覧</h3>
   </div>
-  <div class="col-sm-4">
+  <div class="col--4">
     <p>
       <%= search_form_for @q, url: customers_path do |f| %>
         <%= f.search_field :name_or_introduction_cont, placeholder: "ユーザー名を検索...", class: "form-control" %>
@@ -11,20 +11,32 @@
     </p>
   </div>
 </div>
-
 <div class="card-deck p-5">
-  <div class="row">
-    <%= render 'public/customers/customers', customers: @customers %>
-  </div>
+  <% @customers.each do |customer| %>
+    <% if customer.is_deleted == false %>
+      <div class="col-sm-4 mt-5">
+        <div class="card bg-light pt-3">
+          <%= link_to customer_path(customer), remote: true, class: "mx-auto" do %>
+            <%= attachment_image_tag customer, :image, fallback: "illust_human.jpg", class: "rounded-circle img-fluid" %>
+          <% end %>
+          <div class="card-body text-center">
+            <h5 class="card-title"><%= customer.name %></h5>
+            <p class="card-text">
+              <small class="text-muted">
+                総投稿数：<%= customer.posts.count %><br>
+              </small>
+                <% if customer.country == 0 %>
+                  <div class="text-info">山梨県民</div>
+                <% else %>
+                  <div class="text-warning">移住に興味のある方</div>
+                <% end %>
+            </p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
 </div>
-
-<!--<div class="row">-->
-<!--  <div class="text-center mx-auto mb-3">-->
-<!--    %= paginate @customers %>-->
-<!--  </div>-->
-<!--</div>-->
-
-<!--無限スクロールを設置-->
 
 <div id="mask" class="hidden"></div>
 <div id="modal" class="hidden">
