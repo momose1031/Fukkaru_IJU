@@ -1,22 +1,52 @@
-<h2>フォロワー一覧</h2>
+<div class="text-center titles">
+  <h3>フォロワーリスト</h3>
+</div>
+
 <% if @customers.exists? %>
-  <thead>
-    <tr>
-      <th>name</th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @customers.each do |customer| %>
-      <tr>
-        <td><%= customer.name %></td>
-        <td>フォロー数: <%= customer.followings.count %></td>
-        <td>フォロワー数: <%= customer.followers.count %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+  <div class="container">
+    <div class="row mt-3">
+      <div class="col-md-10 mx-auto">
+        <table class="table table-hover table-inverse table-responsive-md mt-3">
+          <thead class="table-active">
+            <tr>
+              <th>プロフィール画像</th>
+              <th>ニックネーム</th>
+              <th>フォロー数</th>
+              <th>フォロワー数</th>
+              <th>出身</th>
+              <th>ステータス</th>
+            </tr>
+          </thead>
+          <% @customers.each do |customer| %>
+            <tbody>
+              <td>
+                <%= link_to customer_path(customer) do %>
+                  <%= attachment_image_tag customer, :image, fallback: "illust_human.jpg", class: "mini-img-tag" %>
+                <% end %>
+              </td>
+              <td><%= customer.name %></td>
+              <td>フォロー数: <%= customer.followings.count %></td>
+              <td>フォロワー数: <%= customer.followers.count %></td>
+              <td>
+                <% if customer.country == 0 %>
+                  山梨県民
+                <% else %>
+                  移住に興味のある方
+                <% end %>
+              </td>
+              <td>
+                <% if (current_customer.following? customer) && (customer.following? current_customer) %>
+                  相互フォロー
+                <% else %>
+                  フォローして<br>チャットを始めよう！
+                <% end %>
+              </td>
+            </tbody>
+          <% end %>
+        </table>
+      </div>
+    </div>
+  </div>
 <% else %>
   <p>ユーザーはいません</p>
 <% end %>

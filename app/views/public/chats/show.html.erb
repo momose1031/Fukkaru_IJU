@@ -16,8 +16,10 @@
   </div>
 </div>
 
-<%= form_with model: @chat, remote: true do |f| %>
-  <%= f.text_field :message %>
-  <%= f.hidden_field :room_id %>
-  <%= f.submit %>
-<% end %>
+<div class="text-center">
+  <%= form_with model: @chat, remote: true do |f| %>
+    <%= f.text_area :message %><br>
+    <%= f.hidden_field :room_id %>
+    <%= f.submit "チャットを送る" %>
+  <% end %>
+</div>

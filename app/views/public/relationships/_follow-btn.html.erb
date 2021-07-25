@@ -1,14 +1,16 @@
 フォロー数：<%= @customer.followings.count %>
 フォロワー数：<%= @customer.followers.count %><br>
-<% if customer != current_customer %>
-  <% if current_customer.following?(customer) %>
-    <%= link_to "フォロー解除", customer_relationships_path(customer.id), method: :delete, remote: true %><br>
-  <% else %>
-    <%= link_to "フォローする", customer_relationships_path(customer.id), method: :post, remote: true %><br>
-  <% end %>
-  <% if (current_customer.following? customer) && (customer.following? current_customer)  %>
-    <%= link_to 'チャットを始める', chat_path(customer.id)%>
-  <% elsif (customer.following? current_customer) %>
-    フォローされています!<br>フォローしたらチャットができます！！
+<% if customer_signed_in? %>
+  <% if customer != current_customer %>
+    <% if current_customer.following?(customer) %>
+      <%= link_to "フォロー解除", customer_relationships_path(customer.id), method: :delete, remote: true %><br>
+    <% else %>
+      <%= link_to "フォローする", customer_relationships_path(customer.id), method: :post, remote: true %><br>
+    <% end %>
+    <% if (current_customer.following? customer) && (customer.following? current_customer) %>
+      <%= link_to 'チャットを始める', chat_path(customer.id)%>
+    <% elsif (customer.following? current_customer) %>
+      フォローされています!<br>フォローしたらチャットができます！！
+    <% end %>
   <% end %>
 <% end %>
