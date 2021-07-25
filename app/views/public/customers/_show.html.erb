@@ -19,7 +19,11 @@
           </p>
           <p class="card-text">
             <small class="text-muted">
-              お気に入り登録数：<%= customer.favorites.count %>
+              <% if customer == current_customer %>
+                お気に入り登録数：<%= link_to favorites_customers_path do %><%= customer.favorites.count %><% end %>
+              <% else %>
+                お気に入り登録数：<%= customer.favorites.count %>
+              <% end %>
             </small>
           </p>
         </div>
