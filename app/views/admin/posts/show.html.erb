@@ -1,4 +1,4 @@
-<div class="row text-center m-5">
+<div class="row text-center titles">
   <div class="col text-center">
     <h2>投稿No.<%= @post.id %></h2>
   </div>
@@ -7,7 +7,7 @@
   <div class="card mb-3 mx-auto bg-light" style="max-width: 540px;">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <%= attachment_image_tag @post, :image %>
+        <%= attachment_image_tag @post, :image, class: "m-5 img-fluid" %>
       </div>
       <div class="col-md-8">
         <div class="card-body">
@@ -24,10 +24,10 @@
         <%= link_to :back do %>
           <button>一覧ページへ戻る</button>
         <% end %>
-        <p>コメントを見る</p>
           <%= link_to '編集する', edit_admin_post_path(@post) %>
-          <%= link_to "削除する", admin_post_path(@post), method: :delete, "data-confirm" => "本当に退会しますか？" %>
+          <%= link_to "削除する", admin_post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
       </div>
     </div>
   </div>
 </div>
+<%= render "public/comments/comment", post: @post %>

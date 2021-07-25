@@ -3,7 +3,7 @@
     <h2>投稿詳細</h2>
   </div>
 </div>
-<%= render 'public/posts/show', { post: @post, comment: @comment } %>
+<%= render 'public/posts/show', post: @post %>
 <div class="text-center">
   <div class="new-comment">
     <%= form_with(model:[@post, @comment]) do |f| %>

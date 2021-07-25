@@ -29,12 +29,14 @@
           <% @posts.each do |post| %>
             <% if post.category == "おすすめスポット" %>
               <tr>
-                <td><%= attachment_image_tag post, :image, class: "rounded-circle" %></td>
-                <td><%= post.id %></td>
                 <td>
                   <%= link_to admin_post_path(post) do %>
-                    <%= post.title %>
+                    <%= attachment_image_tag post, :image, class: "rounded-circle mini-img-tag" %>
                   <% end %>
+                 </td>
+                <td><%= post.id %></td>
+                <td>
+                  <%= post.title %>
                 </td>
                 <td><%= post.customer.name %></td>
                 <td><%= post.created_at.to_s(:datetime_jp) %></td>

@@ -8,9 +8,9 @@
         <div class="card-body">
           <h3 class="card-title"><%= customer.name %><span style="font-size: 10px">さん</span></h3>
           <% if customer.country == 0 %>
-            <p class="card-text">山梨県民</p>
+            <p class="card-text text-info">山梨県民</p>
           <% else %>
-            <p class="card-text">移住に興味のある方</p>
+            <p class="card-text text-warning">移住に興味のある方</p>
           <% end %>
           <p class="card-text">
             <small class="text-muted">
