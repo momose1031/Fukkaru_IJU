@@ -357,24 +357,30 @@ nav ul {
 
 // ここまで　aboutページレイアウト
 
-// ここから　devise
+// ここから　bootstrap使用formページ
 
-.devise-set {
+.card-sets {
   margin-top: 150px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
-.devise-title {
+.card-titles {
   text-align: center;
   margin: 10px 0 30px;
 }
 
-.devise-btn {
+.card-btn {
   margin-top: 1em;
 }
 
-// ここまで　devise
+.delete-btn {
+  margin-top: 1em;
+}
 
+.back-btn {
+  margin: 1em;
+}
+// ここまで　bootstrap使用formページ
 
 
 // ここから　モーダルウィンドウ
