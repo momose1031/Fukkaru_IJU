@@ -8,8 +8,10 @@ class Public::CustomersController < ApplicationController
 
   def show
     @customer = Customer.find(params[:id])
-    if current_customer.is_deleted == true
-      redirect_to root_path, alert: "このユーザーは退会済みです"
+    if @customer_signed_in
+      if current_customer.is_deleted == true
+        redirect_to root_path, alert: "このユーザーは退会済みです"
+      end
     end
     respond_to do |format|
       format.html

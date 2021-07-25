@@ -22,6 +22,19 @@ body {
   font-family: 'Yu Mincho Light', 'YuMincho', 'Yu Mincho', '游明朝体', sans-serif;
 }
 
+.titles {
+  margin-top: 150px;
+}
+
+.mini-img-tag {
+  width: 200px;
+  height: 200px;
+}
+
+.large-img {
+  width: 480px;
+  height: 360px;
+}
 
 // ここからheader
 
@@ -161,11 +174,6 @@ nav ul {
   margin-top: 400px;
   margin-bottom: 500px;
   text-align: center;
-}
-
-.mini-img-tag {
-  width: 200px;
-  height: 200px;
 }
 
 .top-recommend {
@@ -357,10 +365,6 @@ nav ul {
 // ここまで　aboutページレイアウト
 
 // ここから　bootstrap使用formページ
-
-.titles {
-  margin-top: 150px;
-}
 
 .card-sets {
   margin-top: 150px;
