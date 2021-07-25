@@ -357,7 +357,7 @@ nav ul {
 
 // ここまで　aboutページレイアウト
 
-// ここから　bootstrap使用ページ
+// ここから　bootstrap使用formページ
 
 .card-sets {
   margin-top: 150px;
@@ -376,7 +376,11 @@ nav ul {
 .delete-btn {
   margin-top: 1em;
 }
-// ここまで　bootstrap使用ページ
+
+.back-btn {
+  margin: 1em;
+}
+// ここまで　bootstrap使用formページ
 
 
 // ここから　モーダルウィンドウ

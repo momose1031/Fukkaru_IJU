@@ -6,7 +6,7 @@
           <h3 class="card-titles">投稿編集画面</h3>
           <%= form_with model: @post, url: post_path(@post), method: :patch, local: true do |f| %>
             <div class="form-group">
-              <%= f.label :投稿画像 %><br>
+              <%= f.label :投稿画像（画像を変える場合、新しい画像をアップデート） %><br>
               <%= f.attachment_field :image %>
             </div>
             <div class="form-group">
