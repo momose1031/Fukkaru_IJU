@@ -1,9 +1,9 @@
 <div class="container">
   <div class="row">
     <div class="col-md-6 offset-md-3">
-      <div class="card devise-set">
+      <div class="card card-sets">
         <div class="card-body">
-          <h3 class="devise-title">ログイン</h3>
+          <h3 class="card-titles">管理者ログイン</h3>
           <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
             <div class="form-group">
               <%= f.label :メールアドレス %>
@@ -13,7 +13,7 @@
               <%= f.label :password %>
               <%= f.password_field :password, class: "form-control" %>
             </div>
-              <%= f.submit "ログイン", class: "btn btn-primary w-100 devise-btn" %>
+              <%= f.submit "ログイン", class: "btn btn-primary w-100 card-btn" %>
           <% end %>
         </div>
       </div>
