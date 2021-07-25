@@ -264,7 +264,7 @@ nav ul {
    text-align: center;
    margin-top: 300px;
  }
- 
+
 // タイピング
  #typing {
   height: 700px;
@@ -356,6 +356,26 @@ nav ul {
 }
 
 // ここまで　aboutページレイアウト
+
+// ここから　ログイン
+
+.devise-set {
+  margin-top: 150px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.devise-title {
+  text-align: center;
+  margin: 10px 0 30px;
+}
+
+.devise-btn {
+  margin-top: 1em;
+}
+
+// ここまで　ログイン
+
+
 
 // ここから　モーダルウィンドウ
 #mask {
