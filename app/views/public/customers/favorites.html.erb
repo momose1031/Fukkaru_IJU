@@ -1,4 +1,12 @@
-<h2>お気に入り一覧</h2>
-<% current_customer.favorite_posts.each do |post| %>
+
+<% if @customer = current_customer %>
+  <h3>お気に入り一覧</h3>
+<% else %>
+  <h3><%= @customer.name %>さんのお気に入り一覧</h3>
+<% end %>
+
+<%= @customer.id %>
+
+<% @customer.favorite_posts.each do |post| %>
   <%= post.title %>
 <% end %>
