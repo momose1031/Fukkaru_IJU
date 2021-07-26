@@ -19,8 +19,6 @@
 //= require turbolinks
 // require_tree JSの読み込みを各viewごとに設定
 
-
-
 // ヘッダーハンバーガーメニュー
 $(function(){
   $(".humburger").hide();
