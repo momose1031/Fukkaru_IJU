@@ -1,8 +1,7 @@
 // topページローディング
-$(window).on('turbolinks:load',function(){
-  $("#splash").delay(1500).fadeOut('slow');
-  $("#splash_logo").delay(1500).fadeOut('slow');
-});
+/*global $*/
+$("#splash").delay(1500).fadeOut('slow');
+$("#splash_logo").delay(1500).fadeOut('slow');
 
 // topページ　LINE風
 const lineAdmins = [

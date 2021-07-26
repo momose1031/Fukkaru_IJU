@@ -59,11 +59,11 @@ body {
   height: 70px;
 }
 
-nav {
+.header-nav {
   margin-left: auto;
 }
 
-nav ul {
+.header-nav ul {
   list-style: none;
   display: flex;
 }
@@ -84,7 +84,7 @@ nav ul {
   color: #fff;
 }
 
-.fas {
+.hm-icon {
   padding-top: 5px;
 }
 
