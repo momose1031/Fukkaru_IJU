@@ -21,10 +21,9 @@
 
 // ヘッダーハンバーガーメニュー
 /*global $*/
-$(function(){
-  $(".humburger").hide();
-  $(".fas").click(function(){//メニューボタンをクリックしたとき
+$(function () {
+  $(".humburger").hide ();
+  $(".hm-icon").click(function () {//メニューボタンをクリックしたとき
     $(".humburger").toggle(300);//0.3秒で表示したり非表示にしたりする
   });
 });
-

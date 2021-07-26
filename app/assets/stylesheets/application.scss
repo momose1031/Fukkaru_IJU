@@ -84,13 +84,18 @@ body {
   color: #fff;
 }
 
-.hm-icon {
-  padding-top: 5px;
+.hm-btn {
+  margin: 0 auto;
 }
 
-// .humberger {
-//   posision: absolute;
-// }
+.hm-icon {
+  width: 100%;
+}
+
+.humberger {
+  background-color: #ccc;
+  padding: 20px 3%;
+}
 // ここまでheader
 
 // ここからfooter
