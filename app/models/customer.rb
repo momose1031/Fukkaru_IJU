@@ -36,4 +36,13 @@ class Customer < ApplicationRecord
     super && (self.is_deleted == false)
   end
   
+  def self.guest
+    find_or_create_by!(email: 'guest@example.com') do |customer|
+    customer.password = SecureRandom.urlsafe_base64
+    customer.name = "ゲスト"
+    customer.country = 0
+    customer.is_deleted = false
+    end
+  end
+  
 end
