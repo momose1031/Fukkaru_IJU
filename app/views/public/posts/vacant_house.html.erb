@@ -21,7 +21,7 @@
   <div class="row">
     <% @posts.each do |post| %>
       <% if post.category == "空き家情報" %>
-        <div class="col-sm-4 mt-5">
+        <div class="col-md-4 mt-5">
           <div class="card bg-light pt-3">
             <%= link_to post_path(post), remote: true, class: "mx-auto" do %>
               <%= attachment_image_tag post, :image, class: "rounded-circle img-fluid" %>
