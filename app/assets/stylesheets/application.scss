@@ -19,11 +19,21 @@
 
 body {
   background-image: image-url("tile.jpg");
+  font-family: 'Yu Mincho Light', 'YuMincho', 'Yu Mincho', '游明朝体', sans-serif;
 }
 
-.img-tag {
+.titles {
+  margin-top: 150px;
+}
+
+.mini-img-tag {
   width: 200px;
   height: 200px;
+}
+
+.large-img {
+  width: 480px;
+  height: 360px;
 }
 
 // ここからheader
@@ -123,6 +133,8 @@ nav ul {
   animation-duration: 1.0s;
   animation-fill-mode: f orwards;
   opacity: 0;
+  width: 200px;
+  height: 200px;
 }
 
 @keyframes fadeUpAnime{
@@ -154,7 +166,6 @@ nav ul {
   left: 50%;
   color: #fff;
   font-size: 70px;
-  font-family: 'Yu Mincho Light', 'YuMincho', 'Yu Mincho', '游明朝体', sans-serif;
 }
 
 .theme {
@@ -163,7 +174,6 @@ nav ul {
   margin-top: 400px;
   margin-bottom: 500px;
   text-align: center;
-  font-family: 'Yu Mincho Light', 'YuMincho', 'Yu Mincho', '游明朝体', sans-serif;
 }
 
 .top-recommend {
@@ -171,12 +181,21 @@ nav ul {
 }
 
 .top-vacant-house {
-  margin: 300px 30px;
+  margin: 200px 30px;
 }
 
-.flex {
+.top-flex {
   display: flex;
-  margin-right: 10px;
+  text-align: center;
+}
+
+.recommend-item, .vacant-house-item{
+  margin: 50px;
+}
+
+.top-link {
+  float: right;
+  margin-right: 100px;
 }
 
 .top-second-img {
@@ -185,6 +204,26 @@ nav ul {
 
 .top-second-img img {
   width: 50%;
+}
+
+.top-bottom {
+  width: 100%;
+  display: flex;
+  margin-top: 300px;
+}
+
+.top-bottom-left {
+  width: 50%;
+  text-align: center;
+}
+
+.map {
+  margin-top: 80px;
+}
+
+.top-bottom-right {
+  width: 50%;
+  text-align: center;
 }
 
 #line-top {
@@ -196,9 +235,43 @@ nav ul {
   border: #fff solid 10px;
 }
 
+#btn-admin {
+  cursor: pointer;
+  width: 300px;
+  height: 36px;
+  background-color: #c70dec;
+  box-shadow: 0 4px 0 #6a0683;
+  border-radius: 18px;
+  text-align: center;
+  line-height: 32px;
+  color: #fff;
+  user-select: none;
+  margin: 10px auto;
+}
+
+#btn-customer {
+  cursor: pointer;
+  width: 300px;
+  height: 36px;
+  background-color: #e4007f;
+  box-shadow: 0 4px 0 #584307;
+  border-radius: 18px;
+  text-align: center;
+  line-height: 32px;
+  color: #fff;
+  user-select: none;
+  margin: 0 auto;
+}
+
 // ここまで　トップページ
 
 // ここから　aboutページレイアウト
+
+ .scrol {
+   text-align: center;
+   margin-top: 300px;
+ }
+
 // タイピング
  #typing {
   height: 700px;
@@ -208,7 +281,7 @@ nav ul {
   justify-content: center;
   align-items: center;
   text-align: center;
-  background: linear-gradient(to top, rgba(217, 175, 217, 0.7) 0%, rgba(151, 217, 225, 0.7) 100%),url(illust_grape.png);
+  background: linear-gradient(to top, rgba(217, 175, 217, 0.7) 0%, rgba(151, 217, 225, 0.7) 100%),url("illust_grape.png");
   background-repeat: no-repeat;
   background-position: right;
   cursor: pointer;
@@ -290,6 +363,32 @@ nav ul {
 }
 
 // ここまで　aboutページレイアウト
+
+// ここから　bootstrap使用formページ
+
+.card-sets {
+  margin-top: 150px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.card-titles {
+  text-align: center;
+  margin: 10px 0 30px;
+}
+
+.card-btn {
+  margin-top: 1em;
+}
+
+.delete-btn {
+  margin-top: 1em;
+}
+
+.back-btn {
+  margin: 1em;
+}
+// ここまで　bootstrap使用formページ
+
 
 // ここから　モーダルウィンドウ
 #mask {

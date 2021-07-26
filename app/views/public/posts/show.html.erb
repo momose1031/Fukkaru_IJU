@@ -1,6 +1,24 @@
-<div class="row text-center m-5">
+<div class="row text-center titles">
   <div class="col text-center">
-    <h2>投稿詳細</h2>
+    <h3>投稿詳細</h3>
+    <%= attachment_image_tag @post, :image, class: "large-img mt-5" %>
   </div>
 </div>
-<%= render 'public/posts/show', { post: @post, comment: @comment } %>
+<div class="row text-center titles">
+  <div class="col-md-7">
+    <%= render 'public/posts/show', post: @post %>
+    <div class="new-comment mt-5">
+      <% if customer_signed_in? %>
+        <%= form_with(model:[@post, @comment]) do |f| %>
+          <%= f.text_area :comment, rows:'5',placeholder: "コメントしてみよう" %>
+          <%= f.submit "送信する" %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-5">
+    <div id="comment_<%= @post.id %>">
+      <%= render "public/comments/comment", post: @post %>
+    </div>
+  </div>
+</div>

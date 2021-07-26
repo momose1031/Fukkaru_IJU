@@ -1,33 +1,38 @@
-<div class="row text-center m-5">
+<div class="row text-center titles">
   <div class="col text-center">
-    <h2>投稿No.<%= @post.id %></h2>
+    <h3>投稿No.<%= @post.id %></h3>
+    <%= attachment_image_tag @post, :image, class: "large-img mt-5" %>
   </div>
 </div>
-<div class="row text-center">
-  <div class="card mb-3 mx-auto bg-light" style="max-width: 540px;">
-    <div class="row no-gutters">
-      <div class="col-md-4">
-        <%= attachment_image_tag @post, :image %>
-      </div>
-      <div class="col-md-8">
-        <div class="card-body">
-          <h3 class="card-title"><%= @post.title %><span style="font-size: 10px"></span></h3>
-          <p class="card-text"><small class="text-muted">投稿者：<%= @post.customer.name %></small></p>
-          <p class="card-text"><small class="text-muted">場所：<%= @post.location %></small></p>
-          <p class="card-text"><small class="text-muted">お気に入り数</small></p>
+<div class="row text-center titles">
+  <div class="col-md-7">
+    <div class="card mb-3 mx-auto bg-light" style="max-width: 540px;">
+      <div class="row no-gutters">
+        <div class="col-md-4">
+          <%= attachment_image_tag @post, :image, class: "m-5 img-fluid" %>
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h3 class="card-title"><%= @post.title %><span style="font-size: 10px"></span></h3>
+            <p class="card-text"><small class="text-muted">投稿者：<%= @post.customer.name %></small></p>
+            <p class="card-text"><small class="text-muted">場所：<%= @post.location %></small></p>
+            <p class="card-text"><small class="text-muted">お気に入り数:<%= @post.favorites.count %></small></p>
+          </div>
+        </div>
+        <div class="col">
+          <p><%= @post.body %></p>
+          <p>登録日：<%= @post.created_at.to_s(:datetime_jp) %></p>
+          <p>更新日：<%= @post.updated_at.to_s(:datetime_jp) %></p>
+          <%= link_to :back do %>
+            <button>一覧ページへ戻る</button>
+          <% end %>
+            <%= link_to '編集する', edit_admin_post_path(@post) %>
+            <%= link_to "削除する", admin_post_path(@post), method: :delete, "data-confirm" => "本当に削除しますか？" %>
         </div>
       </div>
-      <div class="col">
-        <p><%= @post.body %></p>
-        <p>登録日：<%= @post.created_at.to_s(:datetime_jp) %></p>
-        <p>更新日：<%= @post.updated_at.to_s(:datetime_jp) %></p>
-        <%= link_to :back do %>
-          <button>一覧ページへ戻る</button>
-        <% end %>
-        <p>コメントを見る</p>
-          <%= link_to '編集する', edit_admin_post_path(@post) %>
-          <%= link_to "削除する", admin_post_path(@post), method: :delete, "data-confirm" => "本当に退会しますか？" %>
-      </div>
     </div>
+  </div>
+  <div class="col-md-5">
+    <%= render "public/comments/comment", post: @post %>
   </div>
 </div>

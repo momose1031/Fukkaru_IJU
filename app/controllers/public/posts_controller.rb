@@ -59,6 +59,15 @@ class Public::PostsController < ApplicationController
     @posts = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(12)
   end
 
+  def index
+    if params[:customer_id]
+      @posts = Post.where(customer_id: params[:customer_id]).order(created_at: :desc)
+      @customer = Customer.find(params[:customer_id])
+    else
+      @posts = Post.all
+    end
+  end
+
   private
 
   def post_params

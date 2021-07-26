@@ -1,0 +1,35 @@
+<div class="row text-center pt-5">
+  <div class="col-md-12">
+    <h3><%= @customer.name %> さんの投稿一覧</h3>
+  </div>
+</div>
+
+<div class="card-deck p-5">
+  <div class="row">
+    <% @posts.each do |post| %>
+      <div class="col-sm-4 mt-5">
+        <div class="card bg-light pt-3">
+          <%= link_to post_path(post), remote: true, class: "mx-auto" do %>
+            <%= attachment_image_tag post, :image, class: "rounded-circle img-fluid" %>
+          <% end %>
+          <div class="card-body text-center">
+            <h5 class="card-title"><%= post.title %></h5>
+            <p class="card-text">
+              投稿者：<%= post.customer.name %>
+            </p>
+            <p class="card-text">
+              場所：<%= post.location %>
+            </p>
+            <p>お気に入り登録数</p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<div id="mask" class="hidden"></div>
+<div id="modal" class="hidden">
+  <p>モーダルウィンドウ<p>
+  <div id="close">閉じる</div>
+</div>

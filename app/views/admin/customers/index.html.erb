@@ -30,15 +30,15 @@
           <% @customers.each do |customer| %>
             <tr>
               <td>
-                <%= attachment_image_tag customer, :image, fallback: "illust_human.jpg", class: "rounded-circle" %>
+                <%= link_to admin_customer_path(customer) do %>
+                  <%= attachment_image_tag customer, :image, fallback: "illust_human.jpg", class: "rounded-circle mini-img-tag" %>
+                <% end %>
               </td>
               <td>
                 <%= customer.id %>
               </td>
               <td>
-                <%= link_to admin_customer_path(customer) do %>
-                  <%= customer.name %>
-                <% end %>
+                <%= customer.name %>
               </td>
               <td>
                 <% if customer.is_deleted == true %>

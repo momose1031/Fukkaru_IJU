@@ -2,40 +2,42 @@
   <div class="card mb-3 mx-auto bg-light" style="max-width: 540px;">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <%= attachment_image_tag customer, :image, fallback: "illust_human.jpg", class: "rounded-circle p-5" %>
+        <%= attachment_image_tag customer, :image, fallback: "illust_human.jpg", class: "m-5 img-fluid" %>
       </div>
       <div class="col-md-8">
         <div class="card-body">
           <h3 class="card-title"><%= customer.name %><span style="font-size: 10px">さん</span></h3>
           <% if customer.country == 0 %>
-            <p class="card-text">山梨県民</p>
+            <p class="card-text text-info">山梨県民</p>
           <% else %>
-            <p class="card-text">移住に興味のある方</p>
+            <p class="card-text text-warning">移住に興味のある方</p>
           <% end %>
           <p class="card-text">
             <small class="text-muted">
-              おすすめスポット投稿数：<%= link_to recommend_path do %><%= customer.posts.count %><% end %>
+              <% if customer_signed_in? %>
+                総投稿数：<%= link_to posts_path(customer_id: customer.id) do %><%= customer.posts.count %><% end %>
+              <% else %>
+                総投稿数：<%= customer.posts.count %>
+              <% end %>
             </small>
           </p>
           <p class="card-text">
             <small class="text-muted">
-              空き家情報投稿数：<%= link_to vacant_house_path do %><%= customer.posts.count %><% end %>
-            </small>
-          </p>
-          <p class="card-text">
-            <small class="text-muted">
-              お気に入り登録数：<%= link_to favorites_customers_path do %><%= customer.favorites.count %><% end %>
+              <% if customer == current_customer %>
+                お気に入り登録数：<%= link_to favorites_customers_path do %><%= customer.favorites.count %><% end %>
+              <% else %>
+                お気に入り登録数：<%= customer.favorites.count %>
+              <% end %>
             </small>
           </p>
         </div>
       </div>
       <div class="col">
-        <% if customer.introduction == nil %>
-          <p>自己紹介文を登録しよう！</p>
-        <% else %>
-          <p><%= customer.introduction %></p>
-        <% end %>
+        <p><%= customer.introduction %></p>
         <% if customer == current_customer %>
+          <% if customer.introduction == nil %>
+            <p>自己紹介文を登録しよう！</p>
+          <% end %>
           <%= link_to '編集する', edit_customer_path(customer) %><br>
         <% end %>
         <div id="follow_<%= customer.id %>">

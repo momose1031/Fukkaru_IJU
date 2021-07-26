@@ -2,7 +2,9 @@
   <div class="card mb-3 mx-auto bg-light" style="max-width: 540px;">
     <div class="row no-gutters">
       <div class="col-md-4">
-        <%= attachment_image_tag post, :image %>
+        <%= link_to post_path(post) do %>
+          <%= attachment_image_tag post, :image, class: "m-5 img-fluid" %>
+        <% end %>
       </div>
       <div class="col-md-8">
         <div class="card-body">
@@ -18,21 +20,11 @@
       </div>
       <div class="col">
         <p><%= post.body %></p>
-        <%= link_to :back do %>
-          <button>一覧ページへ戻る</button>
-        <% end %>
-        <% if post.customer_id == current_customer.id %>
-          <%= link_to '編集する', edit_post_path(post) %>
-        <% end %>
-        <div id="comment_<%= post.id %>">
-          <%= render "public/comments/comment", post: @post %>
-        </div>
-        <div class="new-comment">
-          <%= form_with(model:[post, comment]) do |f| %>
-            <%= f.text_area :comment, rows:'5',placeholder: "コメントしてみよう" %>
-            <%= f.submit "送信する" %>
+        <% if customer_signed_in? %>
+          <% if post.customer_id == current_customer.id %>
+            <%= link_to '編集する', edit_post_path(post) %>
           <% end %>
-        </div>
+        <% end %>
       </div>
     </div>
   </div>
