@@ -4,29 +4,33 @@
   </div>
 </div>
 
-<div class="card-deck p-5">
-  <div class="row">
-    <% @posts.each do |post| %>
-      <div class="col-sm-4 mt-5">
-        <div class="card bg-light pt-3">
-          <%= link_to post_path(post), remote: true, class: "mx-auto" do %>
-            <%= attachment_image_tag post, :image, class: "rounded-circle img-fluid" %>
-          <% end %>
-          <div class="card-body text-center">
-            <h5 class="card-title"><%= post.title %></h5>
-            <p class="card-text">
-              投稿者：<%= post.customer.name %>
-            </p>
-            <p class="card-text">
-              場所：<%= post.location %>
-            </p>
-            <p>お気に入り登録数</p>
+<% if @posts.exists? %>
+  <div class="card-deck p-5">
+    <div class="row">
+      <% @posts.each do |post| %>
+        <div class="col-sm-4 mt-5">
+          <div class="card bg-light pt-3">
+            <%= link_to post_path(post), remote: true, class: "mx-auto" do %>
+              <%= attachment_image_tag post, :image, class: "rounded-circle img-fluid" %>
+            <% end %>
+            <div class="card-body text-center">
+              <h5 class="card-title"><%= post.title %></h5>
+              <p class="card-text">
+                投稿者：<%= post.customer.name %>
+              </p>
+              <p class="card-text">
+                場所：<%= post.location %>
+              </p>
+              <p>お気に入り登録数</p>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
+<% else %>
+  <p>投稿はありません</p>
+<% end %>
 
 <div id="mask" class="hidden"></div>
 <div id="modal" class="hidden">
