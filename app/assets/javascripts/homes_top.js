@@ -44,7 +44,7 @@ btn1.addEventListener('click', () => {
   const afaceicon = document.createElement('div');
   afaceicon.classList.add('a-faceicon');
   const aImg = document.createElement('img');
-  aImg.src = "assets/peach.jpg";
+  aImg.src = "/peach.jpg";
   aImg.classList.add('left-img')
   afaceicon.appendChild(aImg);
   lineAdmin.appendChild(afaceicon);
@@ -69,7 +69,7 @@ btn2.addEventListener('click', () => {
   const cfaceicon = document.createElement('div');
   cfaceicon.classList.add('c-faceicon');
   const cImg = document.createElement('img');
-  cImg.src = "assets/illust_human.jpg";
+  cImg.src = "/illust_human.jpg";
   cImg.classList.add('right-img')
   cfaceicon.appendChild(cImg);
   lineCustomer.appendChild(cfaceicon);
