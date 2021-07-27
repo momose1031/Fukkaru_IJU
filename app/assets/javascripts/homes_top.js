@@ -1,7 +1,9 @@
 // topページローディング
 /*global $*/
-$("#splash").delay(1500).fadeOut('slow');
-$("#splash_logo").delay(1500).fadeOut('slow');
+$(window).on('load', () => {
+  $("#splash").delay(1500).fadeOut('slow');
+  $("#splash_logo").delay(1500).fadeOut('slow');
+})
 
 // topページ　LINE風
 const lineAdmins = [

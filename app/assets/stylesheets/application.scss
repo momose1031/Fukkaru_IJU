@@ -46,7 +46,7 @@ body {
   height: 70px;
   background-color: #333;
   display: flex;
-  x-index: 999999;
+  z-index: 999999;
 }
 
 .page {
@@ -84,13 +84,18 @@ body {
   color: #fff;
 }
 
-.hm-icon {
-  padding-top: 5px;
+.hm-btn {
+  margin: 0 auto;
 }
 
-// .humberger {
-//   posision: absolute;
-// }
+.hm-icon {
+  width: 100%;
+}
+
+.humberger {
+  background-color: #ccc;
+  padding: 20px 3%;
+}
 // ここまでheader
 
 // ここからfooter

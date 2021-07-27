@@ -1,5 +1,4 @@
 class ContactMailer < ApplicationMailer
-  
   default from: ENV['SEND_MAIL']
   
   def received_email(contact)

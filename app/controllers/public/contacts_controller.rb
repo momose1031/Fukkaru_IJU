@@ -2,22 +2,22 @@ class Public::ContactsController < ApplicationController
   
   def new
     @contact = Contact.new
-    render :action => 'new'
+    render 'new'
   end
 
   def confirm
     @contact = Contact.new(params[:contact].permit(:name, :email, :message))
-    if @inquiry.valid?
-      render :action => 'confirm'
+    if @contact.valid?
+      render 'confirm'
     else
-      render :action => 'new'
+      render 'new'
     end
   end
 
   def complete
     @contact = Contact.new(params[:contact].permit(:name, :email, :message))    
     ContactMailer.received_email(@contact).deliver
-    render :action => 'complete'
+    render 'complete'
   end
 
 end
