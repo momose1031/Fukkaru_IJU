@@ -1,7 +1,11 @@
 <div class="row text-center titles">
   <div class="col-md-8">
     <h2>おすすめスポット一覧</h2>
-    <p class=""><%= link_to "新規投稿する", new_post_path %></p>
+    <p>
+      <% if customer_signed_in? %>
+        <%= link_to "新規投稿する", new_post_path %>
+      <% end %>
+    </p>
   </div>
   <div class="col-md-4">
     <p>
