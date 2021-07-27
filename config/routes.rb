@@ -33,9 +33,9 @@ Rails.application.routes.draw do
     get 'vacant_house' => 'posts#vacant_house'
     get 'chat/:id' => 'chats#show', as: 'chat'
     resources :chats, only: [:create]
-    get 'contact' => 'contact#new'
-    post 'contact/confirm' => 'contact#confirm'
-    post 'contact/complete' => 'contact#complete'
+    get 'contact' => 'contacts#new'
+    post 'contact/confirm' => 'contacts#confirm'
+    post 'contact/complete' => 'contacts#complete'
   end
 
   namespace :admin do

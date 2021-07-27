@@ -3,9 +3,9 @@ class ApplicationController < ActionController::Base
   
   def after_sign_in_path_for(resource)
     if resource_name == :admin
-       root_path
+       admin_customers_path
     elsif resource_name == :customer
-       root_path
+       customer_path(current_customer.id)
     end
   end
  
