@@ -7,7 +7,7 @@ class Public::ContactsController < ApplicationController
 
   def confirm
     @contact = Contact.new(params[:contact].permit(:name, :email, :message))
-    if @inquiry.valid?
+    if @contact.valid?
       render :action => 'confirm'
     else
       render :action => 'new'
