@@ -12,4 +12,13 @@ class Post < ApplicationRecord
   
   attachment :image
   
+  validates :image, :presence => {:message => '画像を入れてください'}
+  validates :title, :presence => {:message => 'タイトルを入力してください'}
+  validates :body, :presence => {:message => '内容を入力してください'}
+  validates :location, :presence => {:message => '場所を入力してください'}
+  
+  validates :title, length: { maximum: 40}
+  validates :body, length: { maximum: 200 }
+  validates :location, length: { maximum: 25 }
+  
 end
