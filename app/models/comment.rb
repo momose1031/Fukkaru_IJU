@@ -5,6 +5,6 @@ class Comment < ApplicationRecord
   
   validates :comment, :presence => {:message => 'コメントを入力してください'}
   
-  validates :title, length: { maximum: 200}
+  validates :comment, length: { maximum: 200}
   
 end

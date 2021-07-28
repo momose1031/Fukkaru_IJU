@@ -22,8 +22,8 @@
               <%= f.password_field :password_confirmation, class: "form-control" %>
             </div>
             <div class="form-group">
-              <%= f.radio_button :country, "県民の方" %>県民の方<br />
-              <%= f.radio_button :country, "移住に興味のある方", checked: "checked" %>移住に興味のある方
+              <%= f.radio_button :country, 0 %>県民の方<br />
+              <%= f.radio_button :country, 1, checked: "checked" %>移住に興味のある方
             </div>
               <%= f.submit "登録", class: "btn btn-primary w-100 card-btn" %>
           <% end %>
