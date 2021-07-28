@@ -49,6 +49,7 @@ class Customer < ApplicationRecord
   validates :email, :presence => {:message => 'メールアドレスを入力してください'}
   validates :password, :presence => {:message => 'パスワードを入力してください'}
   
+  validates :name, length: { maximum: 2}
   validates :introduction, length: { maximum: 200}
   
 end
