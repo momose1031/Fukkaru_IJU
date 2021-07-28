@@ -4,6 +4,16 @@
       <div class="card card-sets">
         <div class="card-body">
           <h3 class="card-titles">新規投稿</h3>
+          <% if @post.errors.any? %>
+            <div class="alert alert-danger" role="alert">
+              <strong>入力内容にエラーがあります</strong>
+              <ul>
+                <% @post.errors.each do |attr, msg| %>
+                  <li><%= msg %></li>
+                <% end %>
+              </ul>
+            </div>
+          <% end %>
           <%= form_with model: @post, local:true do |f| %>
             <div class="form-group">
               <%= f.label :投稿画像 %><br>
