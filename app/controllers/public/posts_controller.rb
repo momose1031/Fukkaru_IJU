@@ -51,17 +51,17 @@ class Public::PostsController < ApplicationController
 
   def recommend
     @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(12)
+    @posts = @q.result(distinct: true).order(updated_at: :desc).page(params[:page]).per(12)
   end
 
   def vacant_house
     @q = Post.ransack(params[:q])
-    @posts = @q.result(distinct: true).order(created_at: :desc).page(params[:page]).per(12)
+    @posts = @q.result(distinct: true).order(updated_at: :desc).page(params[:page]).per(12)
   end
 
   def index
     if params[:customer_id]
-      @posts = Post.where(customer_id: params[:customer_id]).order(created_at: :desc)
+      @posts = Post.where(customer_id: params[:customer_id]).order(updated_at: :desc)
       @customer = Customer.find(params[:customer_id])
     else
       @posts = Post.all
