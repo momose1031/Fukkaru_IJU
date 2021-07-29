@@ -21,6 +21,11 @@
               <p class="card-text">
                 場所：<%= post.location %>
               </p>
+              <% if post.category == "おすすめスポット" %>
+                <p>おすすめスポット</p>
+              <% else %>
+                <p>空き家情報</p>
+              <% end %>
             </div>
           </div>
         </div>
