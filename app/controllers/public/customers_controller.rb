@@ -3,7 +3,7 @@ class Public::CustomersController < ApplicationController
 
   def index
     @q = Customer.ransack(params[:q])
-    @customers = @q.result(distinct: true).order(created_at: :desc)
+    @customers = @q.result(distinct: true).order(updated_at: :desc)
   end
 
   def show
