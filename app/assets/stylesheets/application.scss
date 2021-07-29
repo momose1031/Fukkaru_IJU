@@ -36,6 +36,22 @@ body {
   height: 360px;
 }
 
+.flash {
+  width: 100%;
+  text-align: center;
+  color: #fff;
+}
+
+.flash .notice {
+  background-color: lightblue;
+  height: 50px;
+}
+
+.flash .alert {
+  background-color: orange;
+  height: 50px;
+}
+
 // ここからheader
 
 .header {
