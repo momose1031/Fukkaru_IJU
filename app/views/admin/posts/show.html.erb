@@ -1,7 +1,9 @@
 <div class="row text-center titles">
   <div class="col text-center">
     <h3>投稿No.<%= @post.id %></h3>
-    <%= attachment_image_tag @post, :image, class: "large-img mt-5" %>
+    <% @post.post_images.each do |image| %>
+      <%= attachment_image_tag image, :image, class: "large-img mt-5"%>
+    <% end %>
   </div>
 </div>
 <div class="row text-center titles">
@@ -9,7 +11,9 @@
     <div class="card mb-3 mx-auto bg-light" style="max-width: 540px;">
       <div class="row no-gutters">
         <div class="col-md-4">
-          <%= attachment_image_tag @post, :image, class: "m-5 img-fluid" %>
+          <% @post.post_images.first(1).each do |image| %>
+            <%= attachment_image_tag image, :image, class: "m-5 img-fluid" %>
+          <% end %>
         </div>
         <div class="col-md-8">
           <div class="card-body">
