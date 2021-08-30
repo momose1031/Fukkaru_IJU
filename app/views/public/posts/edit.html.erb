@@ -17,7 +17,7 @@
           <%= form_with model: @post, url: post_path(@post), method: :patch, local: true do |f| %>
             <div class="form-group">
               <%= f.label :投稿画像（画像を変える場合、新しい画像をアップデート） %><br>
-              <%= f.attachment_field :image %>
+              <%= f.attachment_field :post_images_images, multiple: true %>
             </div>
             <div class="form-group">
               <%= f.label :タイトル %>

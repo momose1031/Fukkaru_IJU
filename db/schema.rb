@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_07_15_125720) do
+ActiveRecord::Schema.define(version: 2021_07_30_134941) do
 
   create_table "admins", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -71,11 +71,18 @@ ActiveRecord::Schema.define(version: 2021_07_15_125720) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "post_images", force: :cascade do |t|
+    t.integer "post_id", null: false
+    t.string "image_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_post_images_on_post_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.integer "customer_id"
     t.string "title", null: false
     t.text "body", null: false
-    t.string "image_id", null: false
     t.integer "category", null: false
     t.string "location", null: false
     t.datetime "created_at", null: false
