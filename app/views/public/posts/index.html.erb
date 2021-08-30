@@ -11,7 +11,9 @@
         <div class="col-sm-4 mt-5">
           <div class="card bg-light pt-3">
             <%= link_to post_path(post), remote: true, class: "mx-auto" do %>
-              <%= attachment_image_tag post, :image, class: "rounded-circle img-fluid" %>
+              <% post.post_images.first(1).each do |image| %>
+                <%= attachment_image_tag image, :image, class: "rounded-circle img-fluid" %>
+              <% end %>
             <% end %>
             <div class="card-body text-center">
               <h5 class="card-title"><%= post.title %></h5>
@@ -21,6 +23,11 @@
               <p class="card-text">
                 場所：<%= post.location %>
               </p>
+              <% if post.category == "おすすめスポット" %>
+                <p>おすすめスポット</p>
+              <% else %>
+                <p>空き家情報</p>
+              <% end %>
             </div>
           </div>
         </div>

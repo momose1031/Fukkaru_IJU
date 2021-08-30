@@ -1,7 +1,9 @@
 <div class="row text-center titles">
   <div class="col text-center">
     <h3>投稿詳細</h3>
-    <%= attachment_image_tag @post, :image, class: "large-img mt-5" %>
+    <% @post.post_images.each do |image| %>
+      <%= attachment_image_tag image, :image, class: "large-img mt-5"%>
+    <% end %>
   </div>
 </div>
 <div class="row text-center titles">
